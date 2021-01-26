@@ -37,16 +37,19 @@ const ExternalLink = ({to, children}) =>
 const HomePage = () =>
     <CenteredDiv>
         <Title>Liri Portfolio</Title>
+
         <Whitespace/>
 
         <StyledLink to="/proficiencies">Proficiencies</StyledLink>
-        <StyledLink to="/about">Drawings</StyledLink>
-        <StyledLink to="/about">UI/UX</StyledLink>
-        <StyledLink to="/about">Courses</StyledLink>
-        <StyledLink to="/about">Miniatures</StyledLink>
-        <StyledLink to="/about">Old Designs</StyledLink>
-        <StyledLink to="/about">Old Drawings</StyledLink>
+        <StyledLink to="/drawings">Drawings</StyledLink>
+        <StyledLink to="/uiux">UI/UX</StyledLink>
+        <StyledLink to="/courses">Courses</StyledLink>
+        <StyledLink to="/miniatures">Miniatures</StyledLink>
+        <StyledLink to="/old-designs">Old Designs</StyledLink>
+        <StyledLink to="/old-drawings">Old Drawings</StyledLink>
+
         <Whitespace/>
+
         <ExternalLink to="http://www.linkedin.com/in/liri-sokol">Linkedin</ExternalLink>
         <ExternalLink to="https://github.com/ReallyLiri">Github</ExternalLink>
         <ExternalLink to="https://stackoverflow.com/users/1236401/mugen">Stackoverflow</ExternalLink>

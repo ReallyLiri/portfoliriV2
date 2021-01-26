@@ -16,11 +16,26 @@ const RouterComponent = () => <ContainerDiv>
         <Route exact path='/' render={props => (
             <HomePage/>
         )}/>
-        <Route path='/about' render={props => (
-            <GalleryPage {...props}/>
-        )}/>
         <Route path='/proficiencies' render={props => (
             <ProficienciesPage {...props}/>
+        )}/>
+        <Route path='/drawings' render={props => (
+            <GalleryPage names={["drawings"]}/>
+        )}/>
+        <Route path='/uiux' render={props => (
+            <GalleryPage title="Web/Mobile Designs" names={["horrorun", "junana", "complicube", "uiux"]}/>
+        )}/>
+        <Route path='/courses' render={props => (
+            <GalleryPage title="Graphic Design Studies" names={["branding101", "design101", "illustrator", "photoshop"]}/>
+        )}/>
+        <Route path='/miniatures' render={props => (
+            <GalleryPage names={["miniatures"]}/>
+        )}/>
+        <Route path='/old-designs' render={props => (
+            <GalleryPage names={["designs-old"]}/>
+        )}/>
+        <Route path='/old-drawings' render={props => (
+            <GalleryPage names={["drawings-old"]}/>
         )}/>
         <Redirect to='/'/>
     </Switch>
