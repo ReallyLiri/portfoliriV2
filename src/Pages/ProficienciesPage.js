@@ -43,6 +43,8 @@ const nameToSvg = (name) => {
             return <Pandas/>;
         case "sketch":
             return <Sketch/>;
+        default:
+            return null;
     }
 }
 
