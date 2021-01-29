@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components/macro";
 import {Link} from 'react-router-dom';
+import {ReactComponent as Desktop} from '../assets/Desktop.svg'
 
 const CenteredDiv = styled.div`
   height: 100%;
@@ -8,6 +9,10 @@ const CenteredDiv = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
+  #Mug:hover {
+    stroke: red;
+  }
 `
 
 const Title = styled.div`
@@ -36,24 +41,7 @@ const ExternalLink = ({to, children}) =>
 
 const HomePage = () =>
     <CenteredDiv>
-        <Title>Liri Portfolio</Title>
-
-        <Whitespace/>
-
-        <StyledLink to="/proficiencies">Proficiencies</StyledLink>
-        <StyledLink to="/drawings">Drawings</StyledLink>
-        <StyledLink to="/uiux">UI/UX</StyledLink>
-        <StyledLink to="/courses">Courses</StyledLink>
-        <StyledLink to="/miniatures">Miniatures</StyledLink>
-        <StyledLink to="/old-designs">Old Designs</StyledLink>
-        <StyledLink to="/old-drawings">Old Drawings</StyledLink>
-
-        <Whitespace/>
-
-        <ExternalLink to="http://www.linkedin.com/in/liri-sokol">Linkedin</ExternalLink>
-        <ExternalLink to="https://github.com/ReallyLiri">Github</ExternalLink>
-        <ExternalLink to="https://stackoverflow.com/users/1236401/mugen">Stackoverflow</ExternalLink>
-        <ExternalLink to="mailto:reallyliri@gmail.com">Gmail</ExternalLink>
+        <Desktop/>
     </CenteredDiv>
 
 export default HomePage;
