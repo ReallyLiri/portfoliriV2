@@ -11,8 +11,7 @@ import {ReactComponent as Gmail} from "../assets/gmail.svg"
 
 const Container = styled.div`
   padding: 50px;
-
-  
+  z-index: 0;
 `
 
 const StyledImage = styled.img`
@@ -53,6 +52,14 @@ const DimensionalImage = ({src, clickable, isOn, z, ...props}) =>
         {...props}
     />
 
+const StyledText = styled.div`
+  position: absolute;
+  z-index: 100;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px;
+`
+
 const linkMapping = {
     "gmail": ["mailto:reallyliri@gmail.com", true],
     "stackoverflow": ["https://stackoverflow.com/users/1236401/mugen", true],
@@ -86,7 +93,6 @@ const names = [
 
 const elementByName = {}
 
-
 const HomePage = () => {
     const [allOn, setAllOn] = useState(false);
     const [currentOn, setCurrentOn] = useState(null);
@@ -107,51 +113,55 @@ const HomePage = () => {
         console.error(elementByName)
     }, [setCurrentOn])
 
-    return <Container>
-        <DimensionalImage src={'/static/images/d1.png'} z={1}/>
-        <DimensionalImage src={'/static/images/d2.png'} z={2}/>
-        <DimensionalImage src={'/static/images/d3-keyboard-sh.png'} conditional isOn={allOn || currentOn === "keyboard"} z={3}/>
-        <DimensionalImage src={'/static/images/d4.png'} z={4}/>
-        <DimensionalImage src={'/static/images/d5-art-sh.png'} conditional isOn={allOn || currentOn === "art"} z={5}/>
-        <DimensionalImage src={'/static/images/d6.png'} z={6}/>
-        <DimensionalImage src={'/static/images/d7-github-sh.png'} conditional isOn={allOn || currentOn === "github"} z={7}/>
-        <DimensionalImage src={'/static/images/d8-stackoverflow-sh.png'} conditional isOn={allOn || currentOn === "stackoverflow"} z={8}/>
-        <DimensionalImage src={'/static/images/d9-gmail-sh.png'} conditional isOn={allOn || currentOn === "gmail"} z={9}/>
-        <DimensionalImage src={'/static/images/d11-book-sh.png'} conditional isOn={allOn || currentOn === "book"} z={11}/>
-        <DimensionalImage src={'/static/images/d12.png'} z={12}/>
-        <DimensionalImage src={'/static/images/d13-mobile-sh.png'} conditional isOn={allOn || currentOn === "mobile"} z={13}/>
-        <DimensionalImage src={'/static/images/d14.png'} z={14}/>
-        <DimensionalImage src={'/static/images/d15-book-text.png'} conditional isOn={allOn || currentOn === "book"} z={15}/>
-        <DimensionalImage src={'/static/images/d16-mobile-text.png'} conditional isOn={allOn || currentOn === "mobile"} z={16}/>
-        <DimensionalImage src={'/static/images/d17-art-text.png'} conditional isOn={allOn || currentOn === "art"} z={17}/>
-        <DimensionalImage src={'/static/images/d18-keyboard-text.png'} conditional isOn={allOn || currentOn === "keyboard"} z={18}/>
-        <DimensionalImage src={'/static/images/d19-github-text.png'} conditional isOn={allOn || currentOn === "github"} z={19}/>
-        <DimensionalImage src={'/static/images/d20-stackoverflow-text.png'} conditional isOn={allOn || currentOn === "stackoverflow"} z={20}/>
-        <DimensionalImage src={'/static/images/d21-gmail-text.png'} conditional isOn={allOn || currentOn === "gmail"} z={21}/>
+    return <React.Fragment>
+        <StyledText onClick={() => setAllOn(!allOn)}>{allOn ? "Stop Highlight" : "Highlight"}</StyledText>
+        <Container>
+            <DimensionalImage src={'/static/images/d1.png'} z={1}/>
+            <DimensionalImage src={'/static/images/d2.png'} z={2}/>
+            <DimensionalImage src={'/static/images/d3-keyboard-sh.png'} conditional isOn={allOn || currentOn === "keyboard"} z={3}/>
+            <DimensionalImage src={'/static/images/d4.png'} z={4}/>
+            <DimensionalImage src={'/static/images/d5-art-sh.png'} conditional isOn={allOn || currentOn === "art"} z={5}/>
+            <DimensionalImage src={'/static/images/d6.png'} z={6}/>
+            <DimensionalImage src={'/static/images/d7-github-sh.png'} conditional isOn={allOn || currentOn === "github"} z={7}/>
+            <DimensionalImage src={'/static/images/d8-stackoverflow-sh.png'} conditional isOn={allOn || currentOn === "stackoverflow"} z={8}/>
+            <DimensionalImage src={'/static/images/d9-gmail-sh.png'} conditional isOn={allOn || currentOn === "gmail"} z={9}/>
+            <DimensionalImage src={'/static/images/d11-book-sh.png'} conditional isOn={allOn || currentOn === "book"} z={11}/>
+            <DimensionalImage src={'/static/images/d12.png'} z={12}/>
+            <DimensionalImage src={'/static/images/d13-mobile-sh.png'} conditional isOn={allOn || currentOn === "mobile"} z={13}/>
+            <DimensionalImage src={'/static/images/d14.png'} z={14}/>
+            <DimensionalImage src={'/static/images/d15-book-text.png'} conditional isOn={allOn || currentOn === "book"} z={15}/>
+            <DimensionalImage src={'/static/images/d16-mobile-text.png'} conditional isOn={allOn || currentOn === "mobile"} z={16}/>
+            <DimensionalImage src={'/static/images/d17-art-text.png'} conditional isOn={allOn || currentOn === "art"} z={17}/>
+            <DimensionalImage src={'/static/images/d18-keyboard-text.png'} conditional isOn={allOn || currentOn === "keyboard"} z={18}/>
+            <DimensionalImage src={'/static/images/d19-github-text.png'} conditional isOn={allOn || currentOn === "github"} z={19}/>
+            <DimensionalImage src={'/static/images/d20-stackoverflow-text.png'} conditional isOn={allOn || currentOn === "stackoverflow"} z={20}/>
+            <DimensionalImage src={'/static/images/d21-gmail-text.png'} conditional isOn={allOn || currentOn === "gmail"} z={21}/>
 
-        <StyledSvg z={5}>
-            <Art/>
-        </StyledSvg>
-        <StyledSvg z={3}>
-            <Keyboard/>
-        </StyledSvg>
-        <StyledSvg z={7}>
-            <Github/>
-        </StyledSvg>
-        <StyledSvg z={8}>
-            <Stackoverflow/>
-        </StyledSvg>
-        <StyledSvg z={9}>
-            <Gmail/>
-        </StyledSvg>
-        <StyledSvg z={11}>
-            <Book/>
-        </StyledSvg>
-        <StyledSvg z={13}>
-            <Mobile/>
-        </StyledSvg>
+            <StyledSvg z={5}>
+                <Art/>
+            </StyledSvg>
+            <StyledSvg z={3}>
+                <Keyboard/>
+            </StyledSvg>
+            <StyledSvg z={7}>
+                <Github/>
+            </StyledSvg>
+            <StyledSvg z={8}>
+                <Stackoverflow/>
+            </StyledSvg>
+            <StyledSvg z={9}>
+                <Gmail/>
+            </StyledSvg>
+            <StyledSvg z={11}>
+                <Book/>
+            </StyledSvg>
+            <StyledSvg z={13}>
+                <Mobile/>
+            </StyledSvg>
 
-    </Container>
+
+        </Container>
+    </React.Fragment>
 }
 
 export default HomePage;
