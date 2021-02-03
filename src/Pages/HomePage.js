@@ -5,6 +5,10 @@ import {ReactComponent as Desktop} from '../assets/Desktop.svg'
 const CenteredDiv = styled.div`
   padding: 50px;
 
+  #gmail {
+    cursor: pointer;
+  }
+
   #gmail-text {
     opacity: ${props => props.allOn || props.currentOn === "gmail" ? 1 : 0};
     cursor: pointer;
@@ -12,6 +16,10 @@ const CenteredDiv = styled.div`
 
   #gmail-sh {
     opacity: ${props => props.allOn || props.currentOn === "gmail" ? 1 : 0};
+    cursor: pointer;
+  }
+
+  #stackoverflow {
     cursor: pointer;
   }
 
@@ -24,7 +32,11 @@ const CenteredDiv = styled.div`
     opacity: ${props => props.allOn || props.currentOn === "stackoverflow" ? 1 : 0};
     cursor: pointer;
   }
-
+  
+  #github {
+    cursor: pointer;
+  }
+  
   #github-text {
     opacity: ${props => props.allOn || props.currentOn === "github" ? 1 : 0};
     cursor: pointer;
@@ -35,6 +47,10 @@ const CenteredDiv = styled.div`
     cursor: pointer;
   }
 
+  #keyboard {
+    cursor: pointer;
+  }
+  
   #keyboard-text {
     opacity: ${props => props.allOn || props.currentOn === "keyboard" ? 1 : 0};
     cursor: pointer;
@@ -45,6 +61,10 @@ const CenteredDiv = styled.div`
     cursor: pointer;
   }
 
+  #art {
+    cursor: pointer;
+  }
+  
   #art-text {
     opacity: ${props => props.allOn || props.currentOn === "art" ? 1 : 0};
     cursor: pointer;
@@ -55,6 +75,10 @@ const CenteredDiv = styled.div`
     cursor: pointer;
   }
 
+  #mobile {
+    cursor: pointer;
+  }
+  
   #mobile-text {
     opacity: ${props => props.allOn || props.currentOn === "mobile" ? 1 : 0};
     cursor: pointer;
@@ -64,7 +88,11 @@ const CenteredDiv = styled.div`
     opacity: ${props => props.allOn || props.currentOn === "mobile" ? 1 : 0};
     cursor: pointer;
   }
-
+  
+  #book {
+    cursor: pointer;
+  }
+  
   #book-text {
     opacity: ${props => props.allOn || props.currentOn === "book" ? 1 : 0};
     cursor: pointer;
@@ -84,8 +112,8 @@ const HomePage = () => {
         const addListener = (name) => {
             const element = document.querySelector(`#${name}`);
             element.addEventListener('mouseenter', () => setCurrentOn(name));
-            element.addEventListener('mouseover', () => setCurrentOn(null));
-            element.addEventListener('click', () => console.log("CLICK!"));
+            element.addEventListener('mouseleave', () => setCurrentOn(null));
+            element.addEventListener('click', () => alert(`CLICK ${name}`));
         }
         addListener("gmail");
         addListener("stackoverflow");
