@@ -20,7 +20,7 @@ const RouterComponent = () => <ContainerDiv>
             <ProficienciesPage {...props}/>
         )}/>
         <Route path='/drawings' render={props => (
-            <GalleryPage names={["drawings"]}/>
+            <GalleryPage title="Paintings and Drawings" names={["drawings", "drawings-old"]}/>
         )}/>
         <Route path='/uiux' render={props => (
             <GalleryPage title="Web/Mobile Designs" names={["horrorun", "junana", "complicube", "uiux"]}/>
@@ -33,9 +33,6 @@ const RouterComponent = () => <ContainerDiv>
         )}/>
         <Route path='/old-designs' render={props => (
             <GalleryPage names={["designs-old"]}/>
-        )}/>
-        <Route path='/old-drawings' render={props => (
-            <GalleryPage names={["drawings-old"]}/>
         )}/>
         <Redirect to='/'/>
     </Switch>
