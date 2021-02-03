@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .cls-gmail-2 {
+        fill: #f4f4f4;
+      }
+
+      .cls-gmail-3 {
+        fill: #4285f4;
+      }
+
+      .cls-gmail-4 {
+        fill: #34a853;
+      }
+
+      .cls-gmail-5 {
+        fill: #ea4335;
+      }
+
+      .cls-gmail-6 {
+        fill: #fbbc04;
+      }
+
+      .cls-gmail-7 {
+        fill: #c5221f;
+      }
+    </style>
+  </defs>
+  <g id="stickers">
+    <g id="gmail">
+      <ellipse class="cls-gmail-2" cx="667.84" cy="795.02" rx="49.79" ry="45.41" transform="translate(-178.06 192.93) rotate(-14.53)"/>
+      <g>
+        <path class="cls-gmail-3" d="M647.27,816.68l3.27-24.83-6.77-8.06L637.38,779l-4.14,31.4a4.42,4.42,0,0,0,3.81,5Z"/>
+        <path class="cls-gmail-4" d="M682.32,821.3l10.23,1.34a4.42,4.42,0,0,0,5-3.8l4.13-31.41-8.41,3.45-7.64,5.59Z"/>
+        <polygon class="cls-gmail-5" points="650.54 791.85 650.77 782.01 653.04 772.87 668.83 788.32 688.09 777.48 688.11 786.42 685.59 796.47 666.34 807.3 650.54 791.85"/>
+        <path class="cls-gmail-6" d="M688.09,777.48l-2.5,19,16-9,.77-5.84a6.63,6.63,0,0,0-9.83-6.64Z"/>
+        <path class="cls-gmail-7" d="M637.38,779l6,5.92,7.11,7,2.5-19-3.69-3.61a6.63,6.63,0,0,0-11.21,3.87Z"/>
+      </g>
+    </g>
+  </g>
+</svg>
