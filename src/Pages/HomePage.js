@@ -8,6 +8,7 @@ import {ReactComponent as Keyboard} from "../assets/keyboard.svg"
 import {ReactComponent as Mobile} from "../assets/mobile.svg"
 import {ReactComponent as Stackoverflow} from "../assets/stackoverflow.svg"
 import {ReactComponent as Gmail} from "../assets/gmail.svg"
+import {ReactComponent as Card} from "../assets/card.svg"
 
 const Container = styled.div`
   padding: 50px;
@@ -37,7 +38,7 @@ const StyledSvg = styled.div`
   z-index: ${props => props.z || "unset"};
   pointer-events: none;
 
-  #gmail, #stackoverflow, #github, #keyboard, #art, #mobile, #book {
+  #gmail, #stackoverflow, #github, #keyboard, #art, #mobile, #book, #card {
     cursor: pointer;
     pointer-events: all;
   }
@@ -64,11 +65,12 @@ const linkMapping = {
     "gmail": ["mailto:reallyliri@gmail.com", true],
     "stackoverflow": ["https://stackoverflow.com/users/1236401/mugen", true],
     "github": ["https://github.com/ReallyLiri", true],
-    "linkedin": ["http://www.linkedin.com/in/liri-sokol", true],
+    //"linkedin": ["http://www.linkedin.com/in/liri-sokol", true],
     "keyboard": ["/proficiencies", false],
     "art": ["/drawings", false],
     "mobile": ["/uiux", false],
-    "book": ["/courses", false]
+    "book": ["/courses", false],
+    "card": ["/about", false]
 }
 
 const onClick = (name) => {
@@ -80,16 +82,6 @@ const onClick = (name) => {
         navigationService.navigate(url);
     }
 }
-
-const names = [
-    "gmail",
-    "stackoverflow",
-    "github",
-    "keyboard",
-    "art",
-    "mobile",
-    "book"
-]
 
 const elementByName = {}
 
@@ -104,9 +96,12 @@ const HomePage = () => {
             elementByName[name].addEventListener('click', () => onClick(name));
         }
 
-        for (const name of names) {
+        for (const name of Object.keys(linkMapping)) {
             elementByName[name] = document.querySelector(`#${name}`);
-            elementByName[name].style.cursor = "pointer";
+            if (!elementByName[name]) {
+                console.error("Could not find element", name);
+                continue;
+            }
             addListener(name);
         }
 
@@ -119,12 +114,13 @@ const HomePage = () => {
             <DimensionalImage src={'/static/images/d1.png'} z={1}/>
             <DimensionalImage src={'/static/images/d2.png'} z={2}/>
             <DimensionalImage src={'/static/images/d3-keyboard-sh.png'} conditional isOn={allOn || currentOn === "keyboard"} z={3}/>
-            <DimensionalImage src={'/static/images/d4.png'} z={4}/>
-            <DimensionalImage src={'/static/images/d5-art-sh.png'} conditional isOn={allOn || currentOn === "art"} z={5}/>
-            <DimensionalImage src={'/static/images/d6.png'} z={6}/>
-            <DimensionalImage src={'/static/images/d7-github-sh.png'} conditional isOn={allOn || currentOn === "github"} z={7}/>
-            <DimensionalImage src={'/static/images/d8-stackoverflow-sh.png'} conditional isOn={allOn || currentOn === "stackoverflow"} z={8}/>
-            <DimensionalImage src={'/static/images/d9-gmail-sh.png'} conditional isOn={allOn || currentOn === "gmail"} z={9}/>
+            <DimensionalImage src={'/static/images/d22-card-sh.png'} conditional isOn={allOn || currentOn === "card"} z={4}/>
+            <DimensionalImage src={'/static/images/d4.png'} z={5}/>
+            <DimensionalImage src={'/static/images/d5-art-sh.png'} conditional isOn={allOn || currentOn === "art"} z={6}/>
+            <DimensionalImage src={'/static/images/d6.png'} z={7}/>
+            <DimensionalImage src={'/static/images/d7-github-sh.png'} conditional isOn={allOn || currentOn === "github"} z={8}/>
+            <DimensionalImage src={'/static/images/d8-stackoverflow-sh.png'} conditional isOn={allOn || currentOn === "stackoverflow"} z={9}/>
+            <DimensionalImage src={'/static/images/d9-gmail-sh.png'} conditional isOn={allOn || currentOn === "gmail"} z={10}/>
             <DimensionalImage src={'/static/images/d11-book-sh.png'} conditional isOn={allOn || currentOn === "book"} z={11}/>
             <DimensionalImage src={'/static/images/d12.png'} z={12}/>
             <DimensionalImage src={'/static/images/d13-mobile-sh.png'} conditional isOn={allOn || currentOn === "mobile"} z={13}/>
@@ -136,20 +132,24 @@ const HomePage = () => {
             <DimensionalImage src={'/static/images/d19-github-text.png'} conditional isOn={allOn || currentOn === "github"} z={19}/>
             <DimensionalImage src={'/static/images/d20-stackoverflow-text.png'} conditional isOn={allOn || currentOn === "stackoverflow"} z={20}/>
             <DimensionalImage src={'/static/images/d21-gmail-text.png'} conditional isOn={allOn || currentOn === "gmail"} z={21}/>
+            <DimensionalImage src={'/static/images/d22-card-text.png'} conditional isOn={allOn || currentOn === "card"} z={21}/>
 
-            <StyledSvg z={5}>
-                <Art/>
-            </StyledSvg>
-            <StyledSvg z={3}>
+            <StyledSvg z={4}>
                 <Keyboard/>
             </StyledSvg>
-            <StyledSvg z={7}>
-                <Github/>
+            <StyledSvg z={4}>
+                <Card/>
+            </StyledSvg>
+            <StyledSvg z={6}>
+                <Art/>
             </StyledSvg>
             <StyledSvg z={8}>
-                <Stackoverflow/>
+                <Github/>
             </StyledSvg>
             <StyledSvg z={9}>
+                <Stackoverflow/>
+            </StyledSvg>
+            <StyledSvg z={10}>
                 <Gmail/>
             </StyledSvg>
             <StyledSvg z={11}>
