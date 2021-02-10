@@ -1434,6 +1434,7 @@ export const GALLERIES = {
             }
         ],
         "rowHeight": 100,
+        "preview": "https://i.imgur.com/J4swtzk.png",
         "links": [
             "https://horrorrun.reallyliri.com/"
         ],
@@ -1448,6 +1449,7 @@ export const GALLERIES = {
             }
         ],
         "rowHeight": 100,
+        "preview": "https://i.imgur.com/k4dMeRR.png",
         "links": [
             "https://junana.reallyliri.com/"
         ],
@@ -1472,15 +1474,11 @@ export const GALLERIES = {
             }
         ],
         "rowHeight": 100,
+        "preview": "https://i.imgur.com/kcRiiCj.png",
         "title": "Complicube Website"
     },
     "uiux": {
         "images": [
-            {
-                "src": "https://i.imgur.com/GvJkIOI.png",
-                "height": 100,
-                "width": 53
-            },
             {
                 "src": "https://i.imgur.com/fGiNnf7.png",
                 "height": 2,
@@ -1490,9 +1488,15 @@ export const GALLERIES = {
                 "src": "https://i.imgur.com/xmNzuSa.png",
                 "height": 2,
                 "width": 1
+            },
+            {
+                "src": "https://i.imgur.com/GvJkIOI.png",
+                "height": 100,
+                "width": 53
             }
         ],
         "rowHeight": 500,
+        "preview": "https://i.imgur.com/RukJTCC.png",
         "title": "Other Web/Mobile Designs"
     }
 }

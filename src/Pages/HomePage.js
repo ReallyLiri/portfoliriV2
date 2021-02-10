@@ -83,7 +83,6 @@ const HorizontalStack = styled.div`
 `
 
 const HintText = styled.div`
-  font-family: Roboto,serif;
   background-color: black;
   color: white;
   border-radius: 4px;
