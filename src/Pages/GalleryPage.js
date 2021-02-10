@@ -4,7 +4,9 @@ import {GALLERIES} from "../Content/galleries";
 import Gallery from "react-photo-gallery";
 
 const Page = styled.div`
-  margin: 30px;
+  padding: 30px;
+  background: url("/static/images/Desktop.png") no-repeat fixed ;
+  background-size: 100%;
 `
 
 const Title = styled.div`

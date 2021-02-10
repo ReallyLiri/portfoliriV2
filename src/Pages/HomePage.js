@@ -66,11 +66,11 @@ const linkMapping = {
     "stackoverflow": ["https://stackoverflow.com/users/1236401/mugen", true],
     "github": ["https://github.com/ReallyLiri", true],
     //"linkedin": ["http://www.linkedin.com/in/liri-sokol", true],
-    "keyboard": ["/proficiencies", false],
-    "art": ["/drawings", false],
+    "keyboard": ["/wip", false],
+    "art": ["/wip", false],
     "mobile": ["/uiux", false],
-    "book": ["/courses", false],
-    "card": ["/about", false]
+    "book": ["/wip", false],
+    "card": ["http://www.linkedin.com/in/liri-sokol", true]
 }
 
 const onClick = (name) => {

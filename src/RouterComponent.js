@@ -4,6 +4,7 @@ import HomePage from "./Pages/HomePage";
 import styled from "styled-components";
 import GalleryPage from "./Pages/GalleryPage";
 import ProficienciesPage from "./Pages/ProficienciesPage";
+import WipPage from "./Pages/WipPage";
 
 
 const ContainerDiv = styled.div`
@@ -15,6 +16,9 @@ const RouterComponent = () => <ContainerDiv>
     <Switch>
         <Route exact path='/' render={props => (
             <HomePage/>
+        )}/>
+        <Route path='/wip' render={props => (
+            <WipPage {...props}/>
         )}/>
         <Route path='/proficiencies' render={props => (
             <ProficienciesPage {...props}/>
