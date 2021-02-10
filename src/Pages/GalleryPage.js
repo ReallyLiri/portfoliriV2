@@ -2,6 +2,7 @@ import React, {useState} from "react"
 import styled from "styled-components/macro";
 import {GALLERIES} from "../Content/galleries";
 import Gallery from "react-photo-gallery";
+import navigationService from "../utils/navigationService";
 
 const Page = styled.div`
   background: url("/static/images/Desktop.png") no-repeat fixed;
@@ -99,7 +100,7 @@ const StackGallery = styled.div`
 `
 
 const TilesGallery = styled.div`
-    margin: 0 60px 0 60px;
+  margin: 0 60px 0 60px;
 `
 
 const OneGallery = ({name}) => {
@@ -148,21 +149,44 @@ const OneGallery = ({name}) => {
     </StyledGalleryContainer>
 }
 
+const StyledMenu = styled.div`
+  position: absolute;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background-color: black;
+  margin: 10px 5px 10px 10px;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  font-size: 42px;
+`
+
 const GalleryPage = ({title, names}) => {
     const [galleryIndex, setGalleryIndex] = useState(0);
-    return <Page>
-        {
-            title && <React.Fragment>
-                <Title extra>{title}</Title>
-                <HorizontalStack>
-                    {
-                        names.map((name, i) => <Preview name={name} key={name} onClick={() => setGalleryIndex(i)} isSelected={galleryIndex === i} isLast={i === names.length - 1}/>)
-                    }
-                </HorizontalStack>
-            </React.Fragment>
-        }
-        <OneGallery name={names[galleryIndex]}/>
-    </Page>
+    return <React.Fragment>
+        <StyledMenu onClick={() => navigationService.navigate("/")} title="Back">
+            🠔
+        </StyledMenu>
+        <Page>
+            {
+                title && <React.Fragment>
+                    <Title extra>{title}</Title>
+                    <HorizontalStack>
+                        {
+                            names.map((name, i) => <Preview name={name} key={name} onClick={() => setGalleryIndex(i)} isSelected={galleryIndex === i}
+                                                            isLast={i === names.length - 1}/>)
+                        }
+                    </HorizontalStack>
+                </React.Fragment>
+            }
+            <OneGallery name={names[galleryIndex]}/>
+        </Page>
+    </React.Fragment>
 }
 
 export default GalleryPage;
