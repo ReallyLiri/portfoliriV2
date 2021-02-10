@@ -53,12 +53,44 @@ const DimensionalImage = ({src, clickable, isOn, z, ...props}) =>
         {...props}
     />
 
-const StyledText = styled.div`
+const StyledText = styled.span`
+  font-weight: bold;
+  color: white;
+  font-size: 32px;
+`
+
+const Circle = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background-color: black;
+  margin: 10px 5px 10px 10px;
+  cursor: pointer;
+`
+
+const StyledMenu = styled.div`
   position: absolute;
   z-index: 100;
+`
+
+const HorizontalStack = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+`
+
+const HintText = styled.div`
+  font-family: Roboto,serif;
+  background-color: black;
+  color: white;
+  border-radius: 4px;
+  padding: 6px;
+  font-size: 22px;
   font-weight: bold;
-  cursor: pointer;
-  padding: 10px;
+  user-select: none;
 `
 
 const linkMapping = {
@@ -104,13 +136,25 @@ const HomePage = () => {
             }
             addListener(name);
         }
-
-        console.error(elementByName)
     }, [setCurrentOn])
 
     return <React.Fragment>
-        <StyledText onClick={() => setAllOn(!allOn)}>{allOn ? "Stop Highlight" : "Highlight"}</StyledText>
+        <StyledMenu
+            onMouseEnter={() => setAllOn(true)}
+            onMouseLeave={() => setAllOn(false)}
+        >
+            <HorizontalStack>
+            <Circle>
+                <StyledText>?</StyledText>
+            </Circle>
+            {
+                allOn && <HintText>Click on any highlighted item to explore its content</HintText>
+            }
+            </HorizontalStack>
+        </StyledMenu>
+
         <Container>
+
             <DimensionalImage src={'/static/images/d1.png'} z={1}/>
             <DimensionalImage src={'/static/images/d2.png'} z={2}/>
             <DimensionalImage src={'/static/images/d3-keyboard-sh.png'} conditional isOn={allOn || currentOn === "keyboard"} z={3}/>
