@@ -98,7 +98,7 @@ const linkMapping = {
     "github": ["https://github.com/ReallyLiri", true],
     //"linkedin": ["http://www.linkedin.com/in/liri-sokol", true],
     "keyboard": ["/wip", false],
-    "art": ["/wip", false],
+    "art": ["/drawings", false],
     "mobile": ["/uiux", false],
     "book": ["/wip", false],
     "card": ["http://www.linkedin.com/in/liri-sokol", true]

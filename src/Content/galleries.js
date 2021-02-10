@@ -188,9 +188,8 @@ export const GALLERIES = {
             }
         ],
         "rowHeight": 500,
-        "description": "Paintings and drawings done since 2017",
         "preview": "https://i.imgur.com/08lQQn7.png",
-        "title": "Paintings and Drawings"
+        "title": "Paintings and drawings done since 2017"
     },
     "branding101": {
         "images": [
@@ -582,10 +581,9 @@ export const GALLERIES = {
                 "src": "https://i.imgur.com/bkle1XT.png"
             }
         ],
-        "rowHeight": 200,
+        "rowHeight": 500,
         "preview": "https://i.imgur.com/Nm00cXA.png",
-        "description": "Drawings done around 2010-2014",
-        "title": "Old Drawings"
+        "title": "Drawings done around 2010-2014"
     },
     "designs-old": {
         "images": [
@@ -1433,7 +1431,6 @@ export const GALLERIES = {
                 "width": 11
             }
         ],
-        "rowHeight": 100,
         "preview": "https://i.imgur.com/J4swtzk.png",
         "links": [
             "https://horrorrun.reallyliri.com/"
@@ -1448,7 +1445,6 @@ export const GALLERIES = {
                 "width": 9
             }
         ],
-        "rowHeight": 100,
         "preview": "https://i.imgur.com/k4dMeRR.png",
         "links": [
             "https://junana.reallyliri.com/"
@@ -1473,7 +1469,6 @@ export const GALLERIES = {
                 "width": 45
             }
         ],
-        "rowHeight": 100,
         "preview": "https://i.imgur.com/kcRiiCj.png",
         "title": "Complicube Website"
     },
@@ -1495,7 +1490,6 @@ export const GALLERIES = {
                 "width": 53
             }
         ],
-        "rowHeight": 500,
         "preview": "https://i.imgur.com/RukJTCC.png",
         "title": "Other Web/Mobile Designs"
     }

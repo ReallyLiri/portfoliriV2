@@ -98,9 +98,14 @@ const StackGallery = styled.div`
   margin-top: 20px;
 `
 
+const TilesGallery = styled.div`
+    margin: 0 60px 0 60px;
+`
 
 const OneGallery = ({name}) => {
     const {images, rowHeight, title, description, links} = GALLERIES[name]
+    const useTilesGallery = !!rowHeight
+    console.error(useTilesGallery)
 
     return <StyledGalleryContainer>
         <Title>{title}</Title>
@@ -117,26 +122,28 @@ const OneGallery = ({name}) => {
                 }
             </Description> : null
         }
-        <StackGallery>
-            {
-                images.map(
-                    image =>
-                        <a key={image.src} href={image.src} target="_blank" rel="noreferrer">
-                            <img src={image.src} alt={image.src}/>
-                        </a>
-                )
-            }
-        </StackGallery>
         {
-            false && <Gallery
-                limitNodeSearch={1}
-                targetRowHeight={rowHeight}
-                photos={images}
-                onClick={(event, obj) => {
-                    const newTab = window.open(images[obj.index].src, "_blank");
-                    newTab.focus();
-                }}
-            />
+            useTilesGallery
+                ? <TilesGallery>
+                    <Gallery
+                        targetRowHeight={rowHeight}
+                        photos={images}
+                        onClick={(event, obj) => {
+                            const newTab = window.open(images[obj.index].src, "_blank");
+                            newTab.focus();
+                        }}
+                    />
+                </TilesGallery>
+                : <StackGallery>
+                    {
+                        images.map(
+                            image =>
+                                <a key={image.src} href={image.src} target="_blank" rel="noreferrer">
+                                    <img src={image.src} alt={image.src}/>
+                                </a>
+                        )
+                    }
+                </StackGallery>
         }
     </StyledGalleryContainer>
 }
