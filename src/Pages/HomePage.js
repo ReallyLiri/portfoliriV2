@@ -9,10 +9,13 @@ import {ReactComponent as Mobile} from "../assets/mobile.svg"
 import {ReactComponent as Stackoverflow} from "../assets/stackoverflow.svg"
 import {ReactComponent as Gmail} from "../assets/gmail.svg"
 import {ReactComponent as Card} from "../assets/card.svg"
+import MenuOption from "../Components/MenuOption";
 
 const Container = styled.div`
   padding: 50px;
   z-index: 0;
+  height: 100%;
+  background-color: white;
 `
 
 const StyledImage = styled.img`
@@ -44,6 +47,12 @@ const StyledSvg = styled.div`
   }
 `
 
+const StyledText = styled.span`
+  font-weight: bold;
+  color: white;
+  font-size: 32px;
+`
+
 const DimensionalImage = ({src, clickable, isOn, z, ...props}) =>
     <StyledImage
         src={src} alt="img" draggable="false"
@@ -53,44 +62,6 @@ const DimensionalImage = ({src, clickable, isOn, z, ...props}) =>
         {...props}
     />
 
-const StyledText = styled.span`
-  font-weight: bold;
-  color: white;
-  font-size: 32px;
-`
-
-const Circle = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 60px;
-  width: 60px;
-  border-radius: 50%;
-  background-color: black;
-  margin: 10px 5px 10px 10px;
-  cursor: pointer;
-`
-
-const StyledMenu = styled.div`
-  position: absolute;
-  z-index: 100;
-`
-
-const HorizontalStack = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-`
-
-const HintText = styled.div`
-  background-color: black;
-  color: white;
-  border-radius: 4px;
-  padding: 6px;
-  font-size: 22px;
-  font-weight: bold;
-  user-select: none;
-`
 
 const linkMapping = {
     "gmail": ["mailto:reallyliri@gmail.com", true],
@@ -138,19 +109,13 @@ const HomePage = () => {
     }, [setCurrentOn])
 
     return <React.Fragment>
-        <StyledMenu
+        <MenuOption
             onMouseEnter={() => setAllOn(true)}
             onMouseLeave={() => setAllOn(false)}
+            text="Click on any highlighted item to explore its content"
         >
-            <HorizontalStack>
-            <Circle>
-                <StyledText>?</StyledText>
-            </Circle>
-            {
-                allOn && <HintText>Click on any highlighted item to explore its content</HintText>
-            }
-            </HorizontalStack>
-        </StyledMenu>
+            <StyledText>?</StyledText>
+        </MenuOption>
 
         <Container>
 

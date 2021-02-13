@@ -3,10 +3,11 @@ import styled from "styled-components/macro";
 import {GALLERIES} from "../Content/galleries";
 import Gallery from "react-photo-gallery";
 import navigationService from "../utils/navigationService";
+import MenuOption from "../Components/MenuOption";
 
 const Page = styled.div`
-  background: url("/static/images/Desktop.png") no-repeat fixed;
-  background-size: 100%;
+  width: 100vw;
+  position: absolute;
   flex-direction: column;
   justify-content: center;
   text-align: center;
@@ -69,29 +70,6 @@ const Circle = styled.div`
   background-color: white;
 `
 
-const PreviewImage = styled.div`
-  cursor: pointer;
-  margin: 0 10px 0 10px;
-  background-color: white;
-  border-radius: 50%;
-  border: 4px solid ${props => props.isSelected ? "white" : "transparent"};
-
-  img {
-    height: 150px;
-    opacity: ${props => props.isSelected ? "1" : "0.6"};
-  }
-`
-
-const Preview = ({name, onClick, isSelected, isLast}) =>
-    <PreviewContent>
-        <PreviewImage onClick={() => onClick()} isSelected={isSelected} title={GALLERIES[name].title}>
-            <img src={GALLERIES[name].preview} alt={name}/>
-        </PreviewImage>
-        {
-            !isLast && <Circle/>
-        }
-    </PreviewContent>
-
 const StackGallery = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -103,10 +81,25 @@ const TilesGallery = styled.div`
   margin: 0 60px 0 60px;
 `
 
+const StyledArrow = styled.span`
+  font-weight: bold;
+  color: white;
+  font-size: 42px;
+`
+
+const BackgroundImage = styled.img`
+  width: 100vw;
+  position: absolute;;
+`
+
+const PreviewImage = styled.img`
+  height: 60px;
+  opacity: ${props => props.isSelected ? "1" : "0.6"};
+`
+
 const OneGallery = ({name}) => {
     const {images, rowHeight, title, description, links} = GALLERIES[name]
     const useTilesGallery = !!rowHeight
-    console.error(useTilesGallery)
 
     return <StyledGalleryContainer>
         <Title>{title}</Title>
@@ -137,52 +130,31 @@ const OneGallery = ({name}) => {
                 </TilesGallery>
                 : <StackGallery>
                     {
-                        images.map(
-                            image =>
-                                <a key={image.src} href={image.src} target="_blank" rel="noreferrer">
-                                    <img src={image.src} alt={image.src}/>
-                                </a>
-                        )
+                        images.map(image => <img key={image.src} src={image.src} alt={image.src}/>)
                     }
                 </StackGallery>
         }
     </StyledGalleryContainer>
 }
 
-const StyledMenu = styled.div`
-  position: absolute;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 60px;
-  width: 60px;
-  border-radius: 50%;
-  background-color: black;
-  margin: 10px 5px 10px 10px;
-  cursor: pointer;
-  font-weight: bold;
-  color: white;
-  font-size: 42px;
-`
-
 const GalleryPage = ({title, names}) => {
     const [galleryIndex, setGalleryIndex] = useState(0);
     return <React.Fragment>
-        <StyledMenu onClick={() => navigationService.navigate("/")} title="Back">
-            🠔
-        </StyledMenu>
+        <MenuOption onClick={() => navigationService.navigate("/")} text="Back">
+            <StyledArrow>🠔</StyledArrow>
+        </MenuOption>
+        {
+            names.length > 1 &&
+            names.map((name, i) =>
+                <MenuOption onClick={() => setGalleryIndex(i)} text={GALLERIES[name].title} isSelected={galleryIndex === i} circleColor="white" top={80 + 80 * i}>
+                        <PreviewImage src={GALLERIES[name].preview} alt={name} draggable="false" isSelected={i === galleryIndex}/>
+                </MenuOption>
+            )
+        }
+        <BackgroundImage src="/static/images/Desktop.png" alt="bg" draggable="false"/>
         <Page>
             {
-                title && <React.Fragment>
-                    <Title extra>{title}</Title>
-                    <HorizontalStack>
-                        {
-                            names.map((name, i) => <Preview name={name} key={name} onClick={() => setGalleryIndex(i)} isSelected={galleryIndex === i}
-                                                            isLast={i === names.length - 1}/>)
-                        }
-                    </HorizontalStack>
-                </React.Fragment>
+                title && <Title extra>{title}</Title>
             }
             <OneGallery name={names[galleryIndex]}/>
         </Page>
