@@ -33,6 +33,7 @@ const HintText = styled.div`
   font-size: 22px;
   font-weight: bold;
   user-select: none;
+  cursor: pointer;
 `
 
 export default ({className, top, circleColor, onMouseEnter, onMouseLeave, text, invertText, onClick, children}) => {
