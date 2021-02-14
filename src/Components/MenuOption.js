@@ -14,7 +14,7 @@ const Circle = styled.div`
 `
 
 const Container = styled.div`
-  position: absolute;
+  position: fixed;
   z-index: 100;
   top: ${props => props.top || 0}px;
 `
@@ -26,8 +26,8 @@ const HorizontalStack = styled.div`
 `
 
 const HintText = styled.div`
-  background-color: ${props => props.color || "black"};
-  color: white;
+  background-color: ${props => props.invertText ? "white" : "black"};
+  color: ${props => props.invertText ? "black" : "white"};
   border-radius: 4px;
   padding: 6px;
   font-size: 22px;
@@ -35,7 +35,7 @@ const HintText = styled.div`
   user-select: none;
 `
 
-export default ({className, top, circleColor, onMouseEnter, onMouseLeave, text, onClick, children}) => {
+export default ({className, top, circleColor, onMouseEnter, onMouseLeave, text, invertText, onClick, children}) => {
     const [isHovered, setHovered] = useState(false)
     return <Container
         className={className}
@@ -55,7 +55,7 @@ export default ({className, top, circleColor, onMouseEnter, onMouseLeave, text, 
                 {children}
             </Circle>
             {
-                isHovered && <HintText>{text}</HintText>
+                isHovered && <HintText invertText={invertText}>{text}</HintText>
             }
         </HorizontalStack>
     </Container>

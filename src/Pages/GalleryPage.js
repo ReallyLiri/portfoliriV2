@@ -4,6 +4,7 @@ import {GALLERIES} from "../Content/galleries";
 import Gallery from "react-photo-gallery";
 import navigationService from "../utils/navigationService";
 import MenuOption from "../Components/MenuOption";
+import ScrollToTop from "../Components/ScrollToTop";
 
 const Page = styled.div`
   width: 100vw;
@@ -49,25 +50,6 @@ const StyledGalleryContainer = styled.div`
     height: auto;
     margin: 0 auto 40px auto !important;
   }
-`
-
-const HorizontalStack = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-bottom: 48px;
-`
-
-const PreviewContent = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-
-const Circle = styled.div`
-  height: 10px;
-  width: 10px;
-  border-radius: 50%;
-  background-color: white;
 `
 
 const StackGallery = styled.div`
@@ -158,6 +140,7 @@ const GalleryPage = ({title, names}) => {
             }
             <OneGallery name={names[galleryIndex]}/>
         </Page>
+        <ScrollToTop/>
     </React.Fragment>
 }
 
