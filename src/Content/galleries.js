@@ -1431,7 +1431,7 @@ export const GALLERIES = {
                 "width": 360
             },
             {
-                "src": "https://i.imgur.com/JZojlR3.png"
+                "src": "https://i.imgur.com/vPQI8R4.png"
             },
             {
                 "src": "https://i.imgur.com/g6NEi8B.jpg"
