@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from "react"
+import React, {useState} from "react"
 import styled from "styled-components/macro";
 import {GALLERIES} from "../Content/galleries";
 import Gallery from "react-photo-gallery";
@@ -135,19 +135,10 @@ const OneGallery = ({name}) => {
 }
 
 const GalleryPage = ({title, names}) => {
-    const [galleryIndex, setGalleryIndex] = useState(0);
     const location = useLocation();
+    const {i} = navigationService.parseSearchString(location.search);
+    const [galleryIndex, setGalleryIndex] = useState(parseInt(i) || 0);
     const history = useHistory();
-    const setIndexInQuery = useCallback((i) => {
-        history.push({pathname: location.pathname, search: navigationService.buildSearchString({i})})
-    }, [location.pathname])
-    useEffect(() => {
-        if (location.search !== undefined) {
-            const {i} = navigationService.parseSearchString(location.search);
-            setIndexInQuery(i);
-            setGalleryIndex(i);
-        }
-    }, [])
     return <React.Fragment>
         <MenuOption onClick={() => navigationService.navigate("/")} text="Back">
             <StyledArrow>🠔</StyledArrow>
@@ -155,11 +146,14 @@ const GalleryPage = ({title, names}) => {
         {
             names.length > 1 &&
             names.map((name, i) =>
-                <MenuOption onClick={() => {
-                    setGalleryIndex(i);
-                    setIndexInQuery(i);
-                }
-                } text={GALLERIES[name].title} isSelected={galleryIndex === i} circleColor="white" top={80 + 80 * i}>
+                <MenuOption
+                    onClick={() => {
+                        setGalleryIndex(i);
+                        history.push({pathname: location.pathname, search: navigationService.buildSearchString({i})});
+                    }}
+                    text={GALLERIES[name].title}
+                    circleColor="white" top={80 + 80 * i}
+                >
                     <PreviewImage src={GALLERIES[name].preview} alt={name} draggable="false" isSelected={i === galleryIndex}/>
                 </MenuOption>
             )
