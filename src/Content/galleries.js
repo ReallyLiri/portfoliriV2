@@ -1423,6 +1423,27 @@ export const GALLERIES = {
         "description": "Old style designs (\"signatures\") done around 2008-2010",
         "title": "Old Designs"
     },
+    "corvus": {
+        "images": [
+            {
+                "src": "https://i.imgur.com/VRAOgxE.mp4",
+                "height": 720,
+                "width": 360
+            },
+            {
+                "src": "https://i.imgur.com/JZojlR3.png"
+            },
+            {
+                "src": "https://i.imgur.com/g6NEi8B.jpg"
+            }
+        ],
+        "preview": "https://i.imgur.com/3LTcWRD.png",
+        "links": [
+            "http://corvus-analysis.reallyliri.com/"
+        ],
+        "title": "Corvus Corpus Project",
+        "maxVw": 60
+    },
     "horrorun": {
         "images": [
             {

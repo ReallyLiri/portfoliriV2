@@ -44,19 +44,27 @@ const StyledAnchor = styled.a`
 const StyledGalleryContainer = styled.div`
   margin-bottom: 100px;
 
-  img {
+  img, video, source {
     max-width: 80%;
     max-height: 100%;
-    height: auto;
     margin: 0 auto 40px auto !important;
+  }
+
+  img {
+    height: auto;
   }
 `
 
 const StackGallery = styled.div`
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
   margin-top: 20px;
+
+  img {
+    max-width: ${props => props.maxVw || 100}vw;
+  }
 `
 
 const TilesGallery = styled.div`
@@ -80,7 +88,7 @@ const PreviewImage = styled.img`
 `
 
 const OneGallery = ({name}) => {
-    const {images, rowHeight, title, description, links} = GALLERIES[name]
+    const {images, rowHeight, title, description, links, maxVw} = GALLERIES[name]
     const useTilesGallery = !!rowHeight
 
     return <StyledGalleryContainer>
@@ -110,9 +118,15 @@ const OneGallery = ({name}) => {
                         }}
                     />
                 </TilesGallery>
-                : <StackGallery>
+                : <StackGallery maxVw={maxVw}>
                     {
-                        images.map(image => <img key={image.src} src={image.src} alt={image.src}/>)
+                        images.map(image =>
+                            image.src.endsWith("mp4")
+                                ? <video width={image.width} height={image.height} autoPlay controls loop>
+                                    <source src={image.src} type="video/mp4"/>
+                                </video>
+                                : <img key={image.src} src={image.src} alt={image.src}/>
+                        )
                     }
                 </StackGallery>
         }
@@ -129,7 +143,7 @@ const GalleryPage = ({title, names}) => {
             names.length > 1 &&
             names.map((name, i) =>
                 <MenuOption onClick={() => setGalleryIndex(i)} text={GALLERIES[name].title} isSelected={galleryIndex === i} circleColor="white" top={80 + 80 * i}>
-                        <PreviewImage src={GALLERIES[name].preview} alt={name} draggable="false" isSelected={i === galleryIndex}/>
+                    <PreviewImage src={GALLERIES[name].preview} alt={name} draggable="false" isSelected={i === galleryIndex}/>
                 </MenuOption>
             )
         }

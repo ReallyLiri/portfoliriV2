@@ -27,7 +27,7 @@ const RouterComponent = () => <ContainerDiv>
             <GalleryPage title="Paintings and Drawings" names={["drawings", "drawings-old"]}/>
         )}/>
         <Route path='/uiux' render={props => (
-            <GalleryPage title="Web/Mobile Designs" names={["horrorun", "junana", "complicube", "uiux"]}/>
+            <GalleryPage title="Web/Mobile Designs" names={["corvus", "horrorun", "junana", "complicube", "uiux"]}/>
         )}/>
         <Route path='/courses' render={props => (
             <GalleryPage title="Graphic Design Studies" names={["branding101", "design101", "illustrator", "photoshop"]}/>
