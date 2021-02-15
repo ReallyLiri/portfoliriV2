@@ -36,7 +36,7 @@ const HintText = styled.div`
   cursor: pointer;
 `
 
-export default ({className, top, circleColor, onMouseEnter, onMouseLeave, text, invertText, onClick, children}) => {
+const MenuOption = ({className, top, circleColor, onMouseEnter, onMouseLeave, text, invertText, onClick, children}) => {
     const [isHovered, setHovered] = useState(false)
     return <Container
         className={className}
@@ -61,3 +61,5 @@ export default ({className, top, circleColor, onMouseEnter, onMouseLeave, text, 
         </HorizontalStack>
     </Container>
 }
+
+export default MenuOption

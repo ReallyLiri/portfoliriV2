@@ -18,7 +18,7 @@ const StyledUp = styled.span`
   padding-bottom: 8px;
 `
 
-export default ({containerRef}) => {
+const ScrollToTop = ({containerRef}) => {
 
     const [isScrolled, setScrolled] = useState(false);
 
@@ -38,3 +38,5 @@ export default ({containerRef}) => {
         </StyledMenuOption>
         : null
 }
+
+export default ScrollToTop
