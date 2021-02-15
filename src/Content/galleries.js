@@ -1456,7 +1456,8 @@ export const GALLERIES = {
         "links": [
             "https://horrorrun.reallyliri.com/"
         ],
-        "title": "Horrorrun Mobile App"
+        "title": "Horrorrun Mobile App",
+        "maxVw": 60
     },
     "junana": {
         "images": [
@@ -1470,7 +1471,8 @@ export const GALLERIES = {
         "links": [
             "https://junana.reallyliri.com/"
         ],
-        "title": "JunanaOni Mobile App"
+        "title": "JunanaOni Mobile App",
+        "maxVw": 60
     },
     "complicube": {
         "images": [
@@ -1491,7 +1493,8 @@ export const GALLERIES = {
             }
         ],
         "preview": "https://i.imgur.com/kcRiiCj.png",
-        "title": "Complicube Website"
+        "title": "Complicube Website",
+        "maxVw": 60
     },
     "uiux": {
         "images": [

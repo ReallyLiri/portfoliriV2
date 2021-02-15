@@ -1,10 +1,11 @@
-import React, {useState} from "react"
+import React, {useCallback, useEffect, useState} from "react"
 import styled from "styled-components/macro";
 import {GALLERIES} from "../Content/galleries";
 import Gallery from "react-photo-gallery";
 import navigationService from "../utils/navigationService";
 import MenuOption from "../Components/MenuOption";
 import ScrollToTop from "../Components/ScrollToTop";
+import {useHistory, useLocation} from "react-router-dom";
 
 const Page = styled.div`
   width: 100vw;
@@ -101,7 +102,7 @@ const OneGallery = ({name}) => {
                 <SeeAlso>See also:</SeeAlso>
                 {
                     links.map(link => {
-                        return <StyledAnchor target="_blank" rel="noopener noreferrer" href={link}>{link}<br/></StyledAnchor>
+                        return <StyledAnchor key={link} target="_blank" rel="noopener noreferrer" href={link}>{link}<br/></StyledAnchor>
                     })
                 }
             </Description> : null
@@ -122,7 +123,7 @@ const OneGallery = ({name}) => {
                     {
                         images.map(image =>
                             image.src.endsWith("mp4")
-                                ? <video width={image.width} height={image.height} autoPlay controls loop>
+                                ? <video key={image.src} width={image.width} height={image.height} autoPlay controls loop>
                                     <source src={image.src} type="video/mp4"/>
                                 </video>
                                 : <img key={image.src} src={image.src} alt={image.src}/>
@@ -135,6 +136,18 @@ const OneGallery = ({name}) => {
 
 const GalleryPage = ({title, names}) => {
     const [galleryIndex, setGalleryIndex] = useState(0);
+    const location = useLocation();
+    const history = useHistory();
+    const setIndexInQuery = useCallback((i) => {
+        history.push({pathname: location.pathname, search: navigationService.buildSearchString({i})})
+    }, [location.pathname])
+    useEffect(() => {
+        if (location.search !== undefined) {
+            const {i} = navigationService.parseSearchString(location.search);
+            setIndexInQuery(i);
+            setGalleryIndex(i);
+        }
+    }, [])
     return <React.Fragment>
         <MenuOption onClick={() => navigationService.navigate("/")} text="Back">
             <StyledArrow>🠔</StyledArrow>
@@ -142,7 +155,11 @@ const GalleryPage = ({title, names}) => {
         {
             names.length > 1 &&
             names.map((name, i) =>
-                <MenuOption onClick={() => setGalleryIndex(i)} text={GALLERIES[name].title} isSelected={galleryIndex === i} circleColor="white" top={80 + 80 * i}>
+                <MenuOption onClick={() => {
+                    setGalleryIndex(i);
+                    setIndexInQuery(i);
+                }
+                } text={GALLERIES[name].title} isSelected={galleryIndex === i} circleColor="white" top={80 + 80 * i}>
                     <PreviewImage src={GALLERIES[name].preview} alt={name} draggable="false" isSelected={i === galleryIndex}/>
                 </MenuOption>
             )
