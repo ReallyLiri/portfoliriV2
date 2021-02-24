@@ -9,6 +9,7 @@ import {ReactComponent as Mobile} from "../assets/mobile.svg"
 import {ReactComponent as Stackoverflow} from "../assets/stackoverflow.svg"
 import {ReactComponent as Gmail} from "../assets/gmail.svg"
 import {ReactComponent as Card} from "../assets/card.svg"
+import {ReactComponent as Redbubble} from "../assets/redbubble.svg"
 import MenuOption from "../Components/MenuOption";
 
 const Container = styled.div`
@@ -41,7 +42,7 @@ const StyledSvg = styled.div`
   z-index: ${props => props.z || "unset"};
   pointer-events: none;
 
-  #gmail, #stackoverflow, #github, #keyboard, #art, #mobile, #book, #card {
+  #gmail, #stackoverflow, #github, #keyboard, #art, #mobile, #book, #card, #redbubble {
     cursor: pointer;
     pointer-events: all;
   }
@@ -67,6 +68,7 @@ const linkMapping = {
     "gmail": ["mailto:reallyliri@gmail.com", true],
     "stackoverflow": ["https://stackoverflow.com/users/1236401/mugen", true],
     "github": ["https://github.com/ReallyLiri", true],
+    "redbubble": ["https://www.redbubble.com/people/ReallyLiri/shop", true],
     //"linkedin": ["http://www.linkedin.com/in/liri-sokol", true],
     "keyboard": ["/wip", false],
     "art": ["/drawings", false],
@@ -129,6 +131,7 @@ const HomePage = () => {
             <DimensionalImage src={'/static/images/d7-github-sh.png'} conditional isOn={allOn || currentOn === "github"} z={8}/>
             <DimensionalImage src={'/static/images/d8-stackoverflow-sh.png'} conditional isOn={allOn || currentOn === "stackoverflow"} z={9}/>
             <DimensionalImage src={'/static/images/d9-gmail-sh.png'} conditional isOn={allOn || currentOn === "gmail"} z={10}/>
+            <DimensionalImage src={'/static/images/d10-redbubble-sh.png'} conditional isOn={allOn || currentOn === "redbubble"} z={10}/>
             <DimensionalImage src={'/static/images/d11-book-sh.png'} conditional isOn={allOn || currentOn === "book"} z={11}/>
             <DimensionalImage src={'/static/images/d12.png'} z={12}/>
             <DimensionalImage src={'/static/images/d13-mobile-sh.png'} conditional isOn={allOn || currentOn === "mobile"} z={13}/>
@@ -141,6 +144,7 @@ const HomePage = () => {
             <DimensionalImage src={'/static/images/d20-stackoverflow-text.png'} conditional isOn={allOn || currentOn === "stackoverflow"} z={20}/>
             <DimensionalImage src={'/static/images/d21-gmail-text.png'} conditional isOn={allOn || currentOn === "gmail"} z={21}/>
             <DimensionalImage src={'/static/images/d22-card-text.png'} conditional isOn={allOn || currentOn === "card"} z={21}/>
+            <DimensionalImage src={'/static/images/d23-redbubble-text.png'} conditional isOn={allOn || currentOn === "redbubble"} z={21}/>
 
             <StyledSvg z={4}>
                 <Keyboard/>
@@ -159,6 +163,9 @@ const HomePage = () => {
             </StyledSvg>
             <StyledSvg z={10}>
                 <Gmail/>
+            </StyledSvg>
+            <StyledSvg z={10}>
+                <Redbubble/>
             </StyledSvg>
             <StyledSvg z={11}>
                 <Book/>
