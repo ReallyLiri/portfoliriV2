@@ -73,7 +73,7 @@ const linkMapping = {
     "keyboard": ["/wip", false],
     "art": ["/drawings", false],
     "mobile": ["/uiux", false],
-    "book": ["/wip", false],
+    "book": ["/courses", false],
     "card": ["http://www.linkedin.com/in/liri-sokol", true]
 }
 

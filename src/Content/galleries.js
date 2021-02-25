@@ -234,7 +234,7 @@ export const GALLERIES = {
                 "width": 79
             }
         ],
-        "rowHeight": 500,
+        "rowHeight": 300,
         "preview": "https://i.imgur.com/gykvAcX.png",
         "description": "Works done in the course Intro to Branding",
         "links": [
