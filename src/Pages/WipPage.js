@@ -11,15 +11,21 @@ const CenteredDiv = styled.div`
 `
 
 const Title = styled.div`
+  color: white;
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 30px;
 `
 
+const StyledLink = styled(Link)`
+  color: white;
+  font-weight: bold;
+`
+
 const WipPage = () => {
     return <CenteredDiv>
         <Title>Under Construction ... Come Back Later!</Title>
-        <Link to="/">Go Back</Link>
+        <StyledLink to="/">Go Back</StyledLink>
     </CenteredDiv>
 }
 
