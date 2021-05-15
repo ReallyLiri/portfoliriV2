@@ -26,13 +26,6 @@ const StyledImage = styled.img`
   pointer-events: none;
 `
 
-const HorizontalStack = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-`
-
 const VerticalStack = styled.div`
   display: flex;
   flex-direction: column;
@@ -71,6 +64,13 @@ const SocialLink = ({name, url, tip}) =>
 
 const Separator = styled.span`
   font-size: 32px;
+`
+
+const HorizontalStack = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 `
 
 const imageSrc = i => `/static/images/headshots${i}.png`
@@ -118,7 +118,7 @@ const AboutPage = ({dimensions}) => {
                     <HorizontalStack>
                         <SocialLink name="paper-plane" url="mailto:reallyliri@gmail.com" tip="mail"/>
                         <Separator>·</Separator>
-                        <SocialLink name="linkedin" url="http://www.linkedin.com/in/liri-sokol"/>
+                        <SocialLink name="linkedin" url="https://linkedin.com/in/liri-sokol"/>
                     </HorizontalStack>
                 </ContentBox>
                 <VerticalStack>
