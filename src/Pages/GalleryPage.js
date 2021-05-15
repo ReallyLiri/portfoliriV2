@@ -6,6 +6,7 @@ import navigationService from "../utils/navigationService";
 import MenuOption from "../Components/MenuOption";
 import ScrollToTop from "../Components/ScrollToTop";
 import {useHistory, useLocation} from "react-router-dom";
+import Back from "../Components/Back";
 
 const Page = styled.div`
   width: 100vw;
@@ -73,12 +74,6 @@ const StackGallery = styled.div`
 
 const TilesGallery = styled.div`
   margin: 0 60px 0 60px;
-`
-
-const StyledArrow = styled.span`
-  font-weight: bold;
-  color: white;
-  font-size: 42px;
 `
 
 const BackgroundImage = styled.img`
@@ -160,9 +155,7 @@ const GalleryPage = ({title, names}) => {
     )
 
     return <React.Fragment>
-        <MenuOption onClick={() => navigationService.navigate("/")} text="Back">
-            <StyledArrow>🠔</StyledArrow>
-        </MenuOption>
+        <Back/>
         {
             names.length > 1 &&
             names.map((name, i) =>

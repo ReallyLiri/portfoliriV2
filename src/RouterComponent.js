@@ -5,6 +5,7 @@ import styled from "styled-components";
 import GalleryPage from "./Pages/GalleryPage";
 import ProficienciesPage from "./Pages/ProficienciesPage";
 import WipPage from "./Pages/WipPage";
+import AboutPage from "./Pages/AboutPage";
 
 
 const ContainerDiv = styled.div`
@@ -19,6 +20,9 @@ const RouterComponent = () => <ContainerDiv>
         )}/>
         <Route path='/wip' render={props => (
             <WipPage {...props}/>
+        )}/>
+        <Route path='/about' render={props => (
+            <AboutPage {...props}/>
         )}/>
         <Route path='/proficiencies' render={props => (
             <ProficienciesPage {...props}/>

@@ -74,7 +74,7 @@ const linkMapping = {
     "art": ["/drawings", false],
     "mobile": ["/uiux", false],
     "book": ["/courses", false],
-    "card": ["http://www.linkedin.com/in/liri-sokol", true]
+    "card": ["/about", false]
 }
 
 const onClick = (name) => {
