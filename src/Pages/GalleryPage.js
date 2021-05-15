@@ -27,6 +27,7 @@ const Title = styled.div`
 
 const Description = styled.div`
   margin-bottom: 20px;
+  color: white;
 `
 
 const SeeAlso = styled.div`
