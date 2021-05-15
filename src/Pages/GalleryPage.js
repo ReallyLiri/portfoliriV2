@@ -17,8 +17,10 @@ const Page = styled.div`
 `
 
 const Title = styled.div`
-  font-size: ${props => props.extra ? "32" : "26"}px;
-  font-weight: bold;
+  font-size: ${props => props.extra ? "48" : "32"}px;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+  font-weight: bolder;
+  margin-top: ${props => props.extra ? "148" : "32"}px;
   margin-bottom: ${props => props.extra ? "48" : "32"}px;
 `
 
@@ -28,6 +30,7 @@ const Description = styled.div`
 
 const SeeAlso = styled.div`
   padding: 10px;
+  font-weight: bold;
 `
 
 const StyledAnchor = styled.a`
@@ -89,6 +92,10 @@ const PreviewImage = styled.img`
   opacity: ${props => props.isSelected ? "1" : "0.6"};
 `
 
+const GalleryWrapper = styled.div`
+  margin-top: 116px;
+`
+
 const OneGallery = ({name}) => {
     const {images, rowHeight, title, description, links, maxVw} = GALLERIES[name]
     const useTilesGallery = !!rowHeight
@@ -108,6 +115,7 @@ const OneGallery = ({name}) => {
                 }
             </Description> : null
         }
+        <GalleryWrapper>
         {
             useTilesGallery
                 ? <TilesGallery>
@@ -132,6 +140,7 @@ const OneGallery = ({name}) => {
                     }
                 </StackGallery>
         }
+        </GalleryWrapper>
     </StyledGalleryContainer>
 }
 
