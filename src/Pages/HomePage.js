@@ -13,7 +13,6 @@ import {ReactComponent as Redbubble} from "../assets/redbubble.svg"
 import MenuOption from "../Components/MenuOption";
 
 const Container = styled.div`
-  padding: 50px;
   z-index: 0;
   height: 100%;
   background-color: white;
