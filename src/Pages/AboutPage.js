@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from "react"
+import React, {useEffect, useState} from "react"
 import styled from "styled-components/macro";
 import Back from "../Components/Back";
 import navigationService from "../utils/navigationService";
@@ -75,19 +75,17 @@ const Separator = styled.span`
 
 const imageSrc = i => `/static/images/headshots${i}.png`
 
-const AboutPage = () => {
+const AboutPage = ({dimensions}) => {
     const [dimension, setDimension] = useState(320)
 
-    const resize = useCallback(() => {
-        const height = window.innerHeight / 4.0
-        const width = window.innerWidth / 5.0
-        setDimension(Math.min(height, width))
-    }, [setDimension])
     useEffect(() => {
-        resize()
-        window.addEventListener('resize', resize);
-        return () => window.removeEventListener('resize', resize)
-    }, [resize])
+        if (!dimensions) {
+            return
+        }
+        const height = dimensions.height / 4.0
+        const width = dimensions.width / 5.0
+        setDimension(Math.min(height, width))
+    }, [setDimension, dimensions])
 
     return <React.Fragment>
         <Back/>
