@@ -16,10 +16,10 @@ export const PROFICIENCIES = {
     'Backend Frameworks': {
         image: "profs-be-fw",
         list: [
-            {name: 'ASP.NET', devicon: 'dot-net'},
+            {name: '.NET Core', devicon: 'dotnetcore'},
             {name: 'Flask', devicon: 'flask'},
             {name: 'SQLAlchemy', devicon: 'sqlalchemy'},
-            {name: 'Pandas', svg: 'pandas'},
+            {name: 'Pandas', svg: 'pandas'}
         ]
     },
 
@@ -47,6 +47,8 @@ export const PROFICIENCIES = {
     'Web Server': {
         image: "profs-webserver",
         list: [
+            {name: 'ASP.NET', devicon: 'dot-net'},
+            {name: 'Spring', devicon: 'spring'},
             {name: 'NGINX', devicon: 'nginx'},
             {name: 'uWSGI', devicon: 'uwsgi'},
         ]
