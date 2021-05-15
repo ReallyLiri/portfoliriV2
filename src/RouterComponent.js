@@ -18,7 +18,11 @@ const RouterComponent = () => {
     const [dimensions, setDimensions] = useState()
 
     const resize = useCallback(() => {
-        setDimensions({height: window.innerHeight, width: window.innerWidth})
+        setDimensions({
+            height: window.innerHeight,
+            width: window.innerWidth,
+            isMobile: window.innerWidth <= 700
+        })
     }, [setDimensions])
     useEffect(() => {
         resize()

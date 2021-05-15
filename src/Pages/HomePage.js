@@ -12,6 +12,20 @@ import {ReactComponent as Card} from "../assets/card.svg"
 import {ReactComponent as Redbubble} from "../assets/redbubble.svg"
 import MenuOption from "../Components/MenuOption";
 
+
+const OrientationWrapper = styled.div`
+  @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    height: 100vw;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+`
+
 const Container = styled.div`
   z-index: 0;
   height: 100%;
@@ -108,7 +122,7 @@ const HomePage = () => {
         }
     }, [setCurrentOn])
 
-    return <React.Fragment>
+    return <OrientationWrapper>
         <MenuOption
             onMouseEnter={() => setAllOn(true)}
             onMouseLeave={() => setAllOn(false)}
@@ -174,7 +188,7 @@ const HomePage = () => {
 
 
         </Container>
-    </React.Fragment>
+    </OrientationWrapper>
 }
 
 export default HomePage;
