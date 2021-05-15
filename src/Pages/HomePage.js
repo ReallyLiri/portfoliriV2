@@ -24,11 +24,12 @@ const OrientationWrapper = styled.div`
     top: 100%;
     left: 0;
   }
+  background-color: white;
 `
 
 const Container = styled.div`
   z-index: 0;
-  height: 100%;
+  height: 100vh;
   background-color: white;
 `
 
@@ -89,7 +90,13 @@ const linkMapping = {
     "card": ["/about", false]
 }
 
+let globalCurrentOnSetTime = null
+let globalIsMobile = false
+
 const onClick = (name) => {
+    if (globalIsMobile && Date.now() - globalCurrentOnSetTime < 1000) {
+        return
+    }
     const [url, isExternal] = linkMapping[name]
     if (isExternal) {
         navigationService.openTab(url);
@@ -101,14 +108,21 @@ const onClick = (name) => {
 
 const elementByName = {}
 
-const HomePage = () => {
+const HomePage = ({dimensions}) => {
     const [allOn, setAllOn] = useState(false);
     const [currentOn, setCurrentOn] = useState(null);
+    globalIsMobile = dimensions.isMobile;
 
     useEffect(() => {
         const addListener = (name) => {
-            elementByName[name].addEventListener('mouseenter', () => setCurrentOn(name));
-            elementByName[name].addEventListener('mouseleave', () => setCurrentOn(null));
+            elementByName[name].addEventListener('mouseenter', () => {
+                setCurrentOn(name)
+                globalCurrentOnSetTime = Date.now()
+            });
+            elementByName[name].addEventListener('mouseleave', () => {
+                setCurrentOn(null)
+                globalCurrentOnSetTime = Date.now()
+            });
             elementByName[name].addEventListener('click', () => onClick(name));
         }
 

@@ -161,6 +161,7 @@ const GalleryPage = ({title, names}) => {
             names.length > 1 &&
             names.map((name, i) =>
                 <MenuOption
+                    key={i}
                     onClick={() => {
                         setGalleryIndex(i);
                         history.push({pathname: location.pathname, search: navigationService.buildSearchString({i})});

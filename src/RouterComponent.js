@@ -15,7 +15,7 @@ const ContainerDiv = styled.div`
 
 const RouterComponent = () => {
 
-    const [dimensions, setDimensions] = useState()
+    const [dimensions, setDimensions] = useState({isMobile: false})
 
     const resize = useCallback(() => {
         setDimensions({
@@ -33,7 +33,7 @@ const RouterComponent = () => {
     return <ContainerDiv>
         <Switch>
             <Route exact path='/' render={props => (
-                <HomePage {...props}/>
+                <HomePage dimensions={dimensions} {...props}/>
             )}/>
             <Route path='/wip' render={props => (
                 <WipPage {...props}/>
