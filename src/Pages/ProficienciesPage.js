@@ -4,6 +4,7 @@ import styled from "styled-components";
 import {ReactComponent as Neo4j} from '../assets/devicon/neo4j-plain.svg';
 import {ReactComponent as Pandas} from '../assets/devicon/pandas-plain.svg';
 import {ReactComponent as Sketch} from '../assets/devicon/sketch-plain.svg';
+import {ReactComponent as Expo} from '../assets/devicon/expo-plain.svg';
 import Back from "../Components/Back";
 
 const Page = styled.div`
@@ -51,6 +52,8 @@ const nameToSvg = (name) => {
             return <Pandas/>;
         case "sketch":
             return <Sketch/>;
+        case "expo":
+            return <Expo/>;
         default:
             return null;
     }

@@ -61,7 +61,8 @@ export const PROFICIENCIES = {
             {name: 'Vagrant', devicon: 'vagrant'},
             {name: 'git', devicon: 'git'},
             {name: 'TFS', devicon: 'visualstudio'},
-            {name: 'bash', devicon: 'bash'}
+            {name: 'bash', devicon: 'bash'},
+            {name: 'Expo', svg: 'expo'}
         ]
     },
 
