@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 import styled from "styled-components/macro";
 import {GALLERIES} from "../Content/galleries";
 import Gallery from "react-photo-gallery";
@@ -80,7 +80,8 @@ const StyledArrow = styled.span`
 
 const BackgroundImage = styled.img`
   width: 100vw;
-  position: absolute;;
+  position: absolute;
+  filter: hue-rotate(${props => props.hueDegrees}deg)
 `
 
 const PreviewImage = styled.img`
@@ -134,11 +135,21 @@ const OneGallery = ({name}) => {
     </StyledGalleryContainer>
 }
 
+const nextDegrees = () => Math.floor(Math.random() * 360)
+
 const GalleryPage = ({title, names}) => {
+    const [hueDegrees, setHueDegrees] = useState(nextDegrees);
     const location = useLocation();
     const {i} = navigationService.parseSearchString(location.search);
     const [galleryIndex, setGalleryIndex] = useState(parseInt(i) || 0);
     const history = useHistory();
+
+
+    useEffect(() =>
+            setHueDegrees(nextDegrees()),
+        [title, galleryIndex, setHueDegrees]
+    )
+
     return <React.Fragment>
         <MenuOption onClick={() => navigationService.navigate("/")} text="Back">
             <StyledArrow>🠔</StyledArrow>
@@ -158,7 +169,7 @@ const GalleryPage = ({title, names}) => {
                 </MenuOption>
             )
         }
-        <BackgroundImage src="/static/images/Desktop.png" alt="bg" draggable="false"/>
+        <BackgroundImage src="/static/images/Desktop.png" alt="bg" draggable="false" hueDegrees={hueDegrees}/>
         <Page>
             {
                 title && <Title extra>{title}</Title>
