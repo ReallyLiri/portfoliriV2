@@ -13,7 +13,7 @@ import {ReactComponent as Redbubble} from "../assets/redbubble.svg"
 import MenuOption from "../Components/MenuOption";
 
 
-const MobileWidthPercentage = 93
+const MobileWidthPercentage = window.innerHeight < 700 ? 93 : 87;
 
 const OrientationWrapper = styled.div`
   @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
