@@ -7,18 +7,18 @@ import _ from "lodash"
 const StyledMenuOption = styled(MenuOption)`
   position: fixed;
   bottom: 20px;
-  left: 20px;
+  left: 0;
   top: unset;
 `
 
 const StyledUp = styled.span`
   font-weight: bold;
-  color: black;
-  font-size: 32px;
-  padding-bottom: 8px;
+  color: ${props => props.invert ? "white" : "black"};
+  font-size: ${props => props.isMobile ? 16 : 32}px;
+  padding-bottom: ${props => props.isMobile ? 2 : 8}px;
 `
 
-const ScrollToTop = ({containerRef}) => {
+const ScrollToTop = ({containerRef, isMobile, invert}) => {
 
     const [isScrolled, setScrolled] = useState(false);
 
@@ -33,8 +33,8 @@ const ScrollToTop = ({containerRef}) => {
     }, [offsetTop, setScrolled])
 
     return isScrolled
-        ? <StyledMenuOption circleColor="white" onClick={() => navigationService.scrollToTop(offsetTop)} text={"Back to top"} invertText>
-            <StyledUp>▲</StyledUp>
+        ? <StyledMenuOption circleColor={invert ? "black" : "white"} onClick={() => navigationService.scrollToTop(offsetTop)} text={"Back to top"} invertText isMobile={isMobile}>
+            <StyledUp isMobile={isMobile} invert={invert}>▲</StyledUp>
         </StyledMenuOption>
         : null
 }

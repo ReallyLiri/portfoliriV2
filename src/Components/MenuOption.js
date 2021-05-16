@@ -9,7 +9,7 @@ const Circle = styled.div`
   width: ${props => props.isMobile ? 32 : 60}px;
   border-radius: 50%;
   background-color: ${props => props.color || "black"};
-  margin: 10px 5px 10px 10px;
+  margin: 16px 4px 10px ${props => props.isMobile ? 8 : 16}px;
   cursor: pointer;
 `
 

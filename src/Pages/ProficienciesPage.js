@@ -6,6 +6,7 @@ import {ReactComponent as Pandas} from '../assets/devicon/pandas-plain.svg';
 import {ReactComponent as Sketch} from '../assets/devicon/sketch-plain.svg';
 import {ReactComponent as Expo} from '../assets/devicon/expo-plain.svg';
 import Back from "../Components/Back";
+import ScrollToTop from "../Components/ScrollToTop";
 
 const Page = styled.div`
   background: white;
@@ -125,12 +126,12 @@ const ProficienciesPage = ({dimensions}) => {
         <Back isMobile={isMobile}/>
         <Page isMobile={isMobile}>
             {
-                Object.entries(PROFICIENCIES).map((pair) => {
+                Object.entries(PROFICIENCIES).map((pair, index) => {
                     const name = pair[0];
                     const {image, list} = pair[1];
                     return (
-                        <React.Fragment>
-                            <HorizontalStack key={name}>
+                        <React.Fragment key={name}>
+                            <HorizontalStack>
                                 <VerticalStack>
                                     <ProficiencyImage src={imageSrc(image)} isMobile={isMobile}/>
                                     <Title isMobile={isMobile}>{name}</Title>
@@ -142,18 +143,21 @@ const ProficienciesPage = ({dimensions}) => {
                                             <VerticalStack key={prof.name} padding={isMobile ? 12 : 32}>
                                                 {prof.devicon && <Devicon className={`devicon-${prof.devicon}-plain`} isMobile={isMobile}/>}
                                                 {prof.svg && <Svg isMobile={isMobile}>{nameToSvg(prof.svg)}</Svg>}
-                                                <ProficiencyName isMobile={isMobile}>{prof.name}</ProficiencyName>
+                                                <ProficiencyName isMobile={isMobile}>{!prof.skipName ? prof.name : ""}</ProficiencyName>
                                             </VerticalStack>
                                         )
                                     }
                                 </HorizontalStack>
                             </HorizontalStack>
-                            <HorizontalDivider isMobile={isMobile}/>
+                            {
+                                index < Object.entries(PROFICIENCIES).length - 1 && <HorizontalDivider isMobile={isMobile}/>
+                            }
                         </React.Fragment>
                     )
                 })
             }
         </Page>
+        <ScrollToTop isMobile={isMobile} invert/>
     </React.Fragment>
 }
 

@@ -3,9 +3,9 @@ export const PROFICIENCIES = {
     'Backend Languages': {
         image: "profs-be",
         list: [
-            {name: 'C', devicon: 'c'},
-            {name: 'C++', devicon: 'cplusplus'},
-            {name: 'C#', devicon: 'csharp'},
+            {name: 'C', devicon: 'c', skipName: true},
+            {name: 'C++', devicon: 'cplusplus', skipName: true},
+            {name: 'C#', devicon: 'csharp', skipName: true},
             {name: 'Java', devicon: 'java'},
             {name: 'Python', devicon: 'python'},
             {name: 'node.js', devicon: 'nodejs'},
@@ -49,8 +49,8 @@ export const PROFICIENCIES = {
         list: [
             {name: 'ASP.NET', devicon: 'dot-net'},
             {name: 'Spring', devicon: 'spring'},
-            {name: 'NGINX', devicon: 'nginx'},
-            {name: 'uWSGI', devicon: 'uwsgi'},
+            {name: 'NGINX', devicon: 'nginx', skipName: true},
+            {name: 'uWSGI', devicon: 'uwsgi', skipName: true},
         ]
     },
 
