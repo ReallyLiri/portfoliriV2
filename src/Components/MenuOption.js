@@ -44,7 +44,7 @@ const MenuOption = ({className, top, circleColor, onMouseEnter, onMouseLeave, te
         className={className}
         top={top}
         onClick={() => {
-            if (isMobile && smartMobileClick && Date.now() - mouseEnterTime < 1000) {
+            if (isMobile && smartMobileClick && Date.now() - mouseEnterTime < 200) {
                 return
             }
             onClick && onClick()
