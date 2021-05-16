@@ -89,7 +89,7 @@ const AboutPage = ({dimensions}) => {
         if (!dimensions) {
             return
         }
-        const height = dimensions.height / (isMobile ? 5.0 : 4.0)
+        const height = dimensions.height / (dimensions.isMobile ? 5.0 : 4.0)
         const width = dimensions.width / 4.0
         setDimension(Math.min(height, width))
     }, [setDimension, dimensions])
