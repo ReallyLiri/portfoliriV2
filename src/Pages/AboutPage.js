@@ -77,6 +77,7 @@ const imageSrc = i => `/static/images/headshots${i}.png`
 
 const AboutPage = ({dimensions}) => {
     const [dimension, setDimension] = useState(320)
+    const {isMobile} = dimensions;
 
     useEffect(() => {
         if (!dimensions) {
@@ -88,7 +89,7 @@ const AboutPage = ({dimensions}) => {
     }, [setDimension, dimensions])
 
     return <React.Fragment>
-        <Back/>
+        <Back isMobile={isMobile}/>
         <Page>
             <HorizontalStack>
                 <HeadshotImage src={imageSrc(1)} dimension={dimension}/>

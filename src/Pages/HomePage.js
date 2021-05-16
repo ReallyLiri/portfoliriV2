@@ -13,16 +13,18 @@ import {ReactComponent as Redbubble} from "../assets/redbubble.svg"
 import MenuOption from "../Components/MenuOption";
 
 
+const MobileWidthPercentage = 93
+
 const OrientationWrapper = styled.div`
   @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
     transform: rotate(-90deg);
     transform-origin: left top;
     width: 100vh;
     height: 100vw;
-    overflow: hidden;
     position: absolute;
-    top: 100%;
+    top: ${MobileWidthPercentage}%;
     left: 0;
+    overflow: hidden;
   }
   background-color: white;
 `
@@ -31,11 +33,10 @@ const Container = styled.div`
   z-index: 0;
   height: 100vh;
   background-color: white;
-  overscroll-behavior: none;
 `
 
 const StyledImage = styled.img`
-  width: ${props => props.isMobile ? 95 : 100}%;
+  width: ${props => props.isMobile ? MobileWidthPercentage : 100}%;
   position: absolute;
   top: 0;
   left: 0;
@@ -50,7 +51,7 @@ const StyledImage = styled.img`
 `
 
 const StyledSvg = styled.div`
-  width: ${props => props.isMobile ? 95 : 100}%;
+  width: ${props => props.isMobile ? MobileWidthPercentage : 100}%;
   position: absolute;
   top: 0;
   left: 0;
@@ -115,6 +116,24 @@ const HomePage = ({dimensions}) => {
     const {isMobile} = dimensions;
     globalIsMobile = isMobile;
 
+    const preventDefault = e => {
+        e.preventDefault()
+    };
+
+    useEffect(() => {
+        if (!isMobile) {
+            return
+        }
+        document.body.style.position = "relative";
+        document.body.style.overflow = "hidden";
+        document.body.addEventListener("touchmove", preventDefault, {passive: false});
+        return () => {
+            document.body.style.position = "unset";
+            document.body.style.overflow = "unset";
+            document.body.removeEventListener("touchmove", preventDefault);
+        }
+    }, [isMobile])
+
     useEffect(() => {
         const addListener = (name) => {
             elementByName[name].addEventListener('mouseenter', () => {
@@ -138,7 +157,7 @@ const HomePage = ({dimensions}) => {
         }
     }, [setCurrentOn])
 
-    return <OrientationWrapper>
+    return <OrientationWrapper isMobile={isMobile}>
         <MenuOption
             onMouseEnter={() => setAllOn(true)}
             onMouseLeave={() => setAllOn(false)}

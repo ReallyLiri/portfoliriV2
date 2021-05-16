@@ -6,11 +6,11 @@ import React from "react";
 const StyledArrow = styled.span`
   font-weight: bold;
   color: white;
-  font-size: 42px;
+  font-size: ${props => props.isMobile ? 32 : 42}px;
 `
 
-const Back = () =>  <MenuOption onClick={() => navigationService.navigate("/")} text="Back">
-    <StyledArrow>🠔</StyledArrow>
+const Back = ({isMobile}) =>  <MenuOption isMobile={isMobile} onClick={() => navigationService.navigate("/")} text="Back">
+    <StyledArrow isMobile={isMobile}>🠔</StyledArrow>
 </MenuOption>
 
 export default Back

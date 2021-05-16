@@ -4,7 +4,8 @@ body {
     font-family: Roboto, serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overscroll-behavior-y: none;
+    overscroll-behavior: none;
+    height: 100%;
 }
 
 img {

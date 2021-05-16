@@ -36,28 +36,28 @@ const RouterComponent = () => {
                 <HomePage dimensions={dimensions} {...props}/>
             )}/>
             <Route path='/wip' render={props => (
-                <WipPage {...props}/>
+                <WipPage dimensions={dimensions} {...props}/>
             )}/>
             <Route path='/about' render={props => (
                 <AboutPage dimensions={dimensions} {...props}/>
             )}/>
             <Route path='/proficiencies' render={props => (
-                <ProficienciesPage {...props}/>
+                <ProficienciesPage dimensions={dimensions} {...props}/>
             )}/>
             <Route path='/drawings' render={props => (
-                <GalleryPage title="Paintings and Drawings" names={["drawings", "drawings-old"]}/>
+                <GalleryPage title="Paintings and Drawings" names={["drawings", "drawings-old"]} dimensions={dimensions} {...props}/>
             )}/>
             <Route path='/uiux' render={props => (
-                <GalleryPage title="Web/Mobile Designs" names={["corvus", "horrorun", "junana", "complicube", "uiux"]}/>
+                <GalleryPage title="Web/Mobile Designs" names={["corvus", "horrorun", "junana", "complicube", "uiux"]} dimensions={dimensions} {...props}/>
             )}/>
             <Route path='/courses' render={props => (
-                <GalleryPage title="Graphic Design Studies" names={["branding101", "design101", "illustrator", "photoshop"]}/>
+                <GalleryPage title="Graphic Design Studies" names={["branding101", "design101", "illustrator", "photoshop"]} dimensions={dimensions} {...props}/>
             )}/>
             <Route path='/miniatures' render={props => (
-                <GalleryPage names={["miniatures"]}/>
+                <GalleryPage names={["miniatures"]} dimensions={dimensions} {...props}/>
             )}/>
             <Route path='/old-designs' render={props => (
-                <GalleryPage names={["designs-old"]}/>
+                <GalleryPage names={["designs-old"]} dimensions={dimensions} {...props}/>
             )}/>
             <Redirect to='/'/>
         </Switch>
