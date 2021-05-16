@@ -4,7 +4,6 @@ import HomePage from "./Pages/HomePage";
 import styled from "styled-components";
 import GalleryPage from "./Pages/GalleryPage";
 import ProficienciesPage from "./Pages/ProficienciesPage";
-import WipPage from "./Pages/WipPage";
 import AboutPage from "./Pages/AboutPage";
 
 
@@ -34,9 +33,6 @@ const RouterComponent = () => {
         <Switch>
             <Route exact path='/' render={props => (
                 <HomePage dimensions={dimensions} {...props}/>
-            )}/>
-            <Route path='/wip' render={props => (
-                <WipPage dimensions={dimensions} {...props}/>
             )}/>
             <Route path='/about' render={props => (
                 <AboutPage dimensions={dimensions} {...props}/>

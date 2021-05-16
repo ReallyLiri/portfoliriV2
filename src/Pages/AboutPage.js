@@ -126,51 +126,52 @@ const AboutPage = ({dimensions}) => {
                     ? <React.Fragment>
                         <HorizontalStack isMobile={isMobile}>
                             <HeadshotImage isMobile={isMobile} src={imageSrc(1)} dimension={dimension}/>
-                            <HeadshotImage isMobile={isMobile} src={imageSrc(2)} dimension={dimension}/>
+                            <HeadshotImage isMobile={isMobile} src={imageSrc(10)} dimension={dimension}/>
                             <HeadshotImage isMobile={isMobile} src={imageSrc(3)} dimension={dimension}/>
                         </HorizontalStack>
                         <HorizontalStack isMobile={isMobile}>
                             <VerticalStack>
-                                <HeadshotImage isMobile={isMobile} src={imageSrc(4)} dimension={dimension}/>
-                                <HeadshotImage isMobile={isMobile} src={imageSrc(5)} dimension={dimension}/>
+                                <HeadshotImage isMobile={isMobile} src={imageSrc(2)} dimension={dimension}/>
+                                <HeadshotImage isMobile={isMobile} src={imageSrc(8)} dimension={dimension}/>
                                 <HeadshotImage isMobile={isMobile} src={imageSrc(6)} dimension={dimension}/>
                             </VerticalStack>
                             <MainContent/>
                             <VerticalStack>
                                 <HeadshotImage isMobile={isMobile} src={imageSrc(7)} dimension={dimension}/>
-                                <HeadshotImage isMobile={isMobile} src={imageSrc(8)} dimension={dimension}/>
+                                <HeadshotImage isMobile={isMobile} src={imageSrc(5)} dimension={dimension}/>
                                 <HeadshotImage isMobile={isMobile} src={imageSrc(9)} dimension={dimension}/>
                             </VerticalStack>
                         </HorizontalStack>
                         <HorizontalStack isMobile={isMobile}>
-                            <HeadshotImage isMobile={isMobile} src={imageSrc(10)} dimension={dimension}/>
+                            <HeadshotImage isMobile={isMobile} src={imageSrc(4)} dimension={dimension}/>
                             <HeadshotImage isMobile={isMobile} src={imageSrc(11)} dimension={dimension}/>
                             <HeadshotImage isMobile={isMobile} src={imageSrc(12)} dimension={dimension}/>
                         </HorizontalStack>
                     </React.Fragment>
+
                     : <React.Fragment>
                         <HorizontalStack isMobile={isMobile}>
                             <HeadshotImage isMobile={isMobile} src={imageSrc(1)} dimension={dimension}/>
-                            <HeadshotImage isMobile={isMobile} src={imageSrc(2)} dimension={dimension}/>
+                            <HeadshotImage isMobile={isMobile} src={imageSrc(10)} dimension={dimension}/>
                             <HeadshotImage isMobile={isMobile} src={imageSrc(3)} dimension={dimension}/>
-                            <HeadshotImage isMobile={isMobile} src={imageSrc(4)} dimension={dimension}/>
+                            <HeadshotImage isMobile={isMobile} src={imageSrc(12)} dimension={dimension}/>
                         </HorizontalStack>
                         <HorizontalStack isMobile={isMobile}>
                             <VerticalStack>
-                                <HeadshotImage isMobile={isMobile} src={imageSrc(5)} dimension={dimension}/>
+                                <HeadshotImage isMobile={isMobile} src={imageSrc(7)} dimension={dimension}/>
                                 <HeadshotImage isMobile={isMobile} src={imageSrc(6)} dimension={dimension}/>
                             </VerticalStack>
                             <MainContent/>
                             <VerticalStack>
-                                <HeadshotImage isMobile={isMobile} src={imageSrc(7)} dimension={dimension}/>
+                                <HeadshotImage isMobile={isMobile} src={imageSrc(5)} dimension={dimension}/>
                                 <HeadshotImage isMobile={isMobile} src={imageSrc(8)} dimension={dimension}/>
                             </VerticalStack>
                         </HorizontalStack>
                         <HorizontalStack isMobile={isMobile}>
                             <HeadshotImage isMobile={isMobile} src={imageSrc(9)} dimension={dimension}/>
-                            <HeadshotImage isMobile={isMobile} src={imageSrc(10)} dimension={dimension}/>
+                            <HeadshotImage isMobile={isMobile} src={imageSrc(2)} dimension={dimension}/>
                             <HeadshotImage isMobile={isMobile} src={imageSrc(11)} dimension={dimension}/>
-                            <HeadshotImage isMobile={isMobile} src={imageSrc(12)} dimension={dimension}/>
+                            <HeadshotImage isMobile={isMobile} src={imageSrc(4)} dimension={dimension}/>
                         </HorizontalStack>
                     </React.Fragment>
             }
