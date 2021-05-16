@@ -36,14 +36,23 @@ const HintText = styled.div`
   cursor: pointer;
 `
 
-const MenuOption = ({className, top, circleColor, onMouseEnter, onMouseLeave, text, invertText, onClick, isMobile, children}) => {
+let mouseEnterTime = null
+
+const MenuOption = ({className, top, circleColor, onMouseEnter, onMouseLeave, text, invertText, onClick, isMobile, smartMobileClick, children}) => {
     const [isHovered, setHovered] = useState(false)
     return <Container
         className={className}
         top={top}
-        onClick={() => onClick && onClick()}
+        onClick={() => {
+            if (isMobile && smartMobileClick && Date.now() - mouseEnterTime < 1000) {
+                return
+            }
+            onClick && onClick()
+        }
+        }
         onMouseEnter={() => {
             setHovered(true);
+            mouseEnterTime = Date.now()
             onMouseEnter && onMouseEnter();
         }}
         onMouseLeave={() => {
