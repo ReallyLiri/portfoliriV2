@@ -5,8 +5,8 @@ const Circle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 60px;
-  width: 60px;
+  height: ${props => props.isMobile ? 32 : 60}px;
+  width: ${props => props.isMobile ? 32 : 60}px;
   border-radius: 50%;
   background-color: ${props => props.color || "black"};
   margin: 10px 5px 10px 10px;
@@ -30,13 +30,13 @@ const HintText = styled.div`
   color: ${props => props.invertText ? "black" : "white"};
   border-radius: 4px;
   padding: 6px;
-  font-size: 22px;
+  font-size: ${props => props.isMobile ? 12 : 22}px;
   font-weight: bold;
   user-select: none;
   cursor: pointer;
 `
 
-const MenuOption = ({className, top, circleColor, onMouseEnter, onMouseLeave, text, invertText, onClick, children}) => {
+const MenuOption = ({className, top, circleColor, onMouseEnter, onMouseLeave, text, invertText, onClick, isMobile, children}) => {
     const [isHovered, setHovered] = useState(false)
     return <Container
         className={className}
@@ -52,11 +52,11 @@ const MenuOption = ({className, top, circleColor, onMouseEnter, onMouseLeave, te
         }}
     >
         <HorizontalStack>
-            <Circle color={circleColor}>
+            <Circle color={circleColor} isMobile={isMobile}>
                 {children}
             </Circle>
             {
-                isHovered && <HintText invertText={invertText}>{text}</HintText>
+                isHovered && <HintText invertText={invertText} isMobile={isMobile}>{text}</HintText>
             }
         </HorizontalStack>
     </Container>

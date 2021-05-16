@@ -19,7 +19,7 @@ const OrientationWrapper = styled.div`
     transform-origin: left top;
     width: 100vh;
     height: 100vw;
-    overflow-x: hidden;
+    overflow: hidden;
     position: absolute;
     top: 100%;
     left: 0;
@@ -31,10 +31,11 @@ const Container = styled.div`
   z-index: 0;
   height: 100vh;
   background-color: white;
+  overscroll-behavior: none;
 `
 
 const StyledImage = styled.img`
-  width: 100%;
+  width: ${props => props.isMobile ? 95 : 100}%;
   position: absolute;
   top: 0;
   left: 0;
@@ -49,7 +50,7 @@ const StyledImage = styled.img`
 `
 
 const StyledSvg = styled.div`
-  width: 100%;
+  width: ${props => props.isMobile ? 95 : 100}%;
   position: absolute;
   top: 0;
   left: 0;
@@ -65,7 +66,7 @@ const StyledSvg = styled.div`
 const StyledText = styled.span`
   font-weight: bold;
   color: white;
-  font-size: 32px;
+  font-size: ${props => props.isMobile ? 24 : 32}px;
 `
 
 const DimensionalImage = ({src, clickable, isOn, z, ...props}) =>
@@ -111,7 +112,8 @@ const elementByName = {}
 const HomePage = ({dimensions}) => {
     const [allOn, setAllOn] = useState(false);
     const [currentOn, setCurrentOn] = useState(null);
-    globalIsMobile = dimensions.isMobile;
+    const {isMobile} = dimensions;
+    globalIsMobile = isMobile;
 
     useEffect(() => {
         const addListener = (name) => {
@@ -141,62 +143,63 @@ const HomePage = ({dimensions}) => {
             onMouseEnter={() => setAllOn(true)}
             onMouseLeave={() => setAllOn(false)}
             text="Click on any highlighted item to explore its content"
+            isMobile={isMobile}
         >
-            <StyledText>?</StyledText>
+            <StyledText isMobile={isMobile}>?</StyledText>
         </MenuOption>
 
         <Container>
 
-            <DimensionalImage src={'/static/images/d1.png'} z={1}/>
-            <DimensionalImage src={'/static/images/d2.png'} z={2}/>
-            <DimensionalImage src={'/static/images/d3-keyboard-sh.png'} conditional isOn={allOn || currentOn === "keyboard"} z={3}/>
-            <DimensionalImage src={'/static/images/d22-card-sh.png'} conditional isOn={allOn || currentOn === "card"} z={4}/>
-            <DimensionalImage src={'/static/images/d4.png'} z={5}/>
-            <DimensionalImage src={'/static/images/d5-art-sh.png'} conditional isOn={allOn || currentOn === "art"} z={6}/>
-            <DimensionalImage src={'/static/images/d6.png'} z={7}/>
-            <DimensionalImage src={'/static/images/d7-github-sh.png'} conditional isOn={allOn || currentOn === "github"} z={8}/>
-            <DimensionalImage src={'/static/images/d8-stackoverflow-sh.png'} conditional isOn={allOn || currentOn === "stackoverflow"} z={9}/>
-            <DimensionalImage src={'/static/images/d9-gmail-sh.png'} conditional isOn={allOn || currentOn === "gmail"} z={10}/>
-            <DimensionalImage src={'/static/images/d10-redbubble-sh.png'} conditional isOn={allOn || currentOn === "redbubble"} z={10}/>
-            <DimensionalImage src={'/static/images/d11-book-sh.png'} conditional isOn={allOn || currentOn === "book"} z={11}/>
-            <DimensionalImage src={'/static/images/d12.png'} z={12}/>
-            <DimensionalImage src={'/static/images/d13-mobile-sh.png'} conditional isOn={allOn || currentOn === "mobile"} z={13}/>
-            <DimensionalImage src={'/static/images/d14.png'} z={14}/>
-            <DimensionalImage src={'/static/images/d15-book-text.png'} conditional isOn={allOn || currentOn === "book"} z={15}/>
-            <DimensionalImage src={'/static/images/d16-mobile-text.png'} conditional isOn={allOn || currentOn === "mobile"} z={16}/>
-            <DimensionalImage src={'/static/images/d17-art-text.png'} conditional isOn={allOn || currentOn === "art"} z={17}/>
-            <DimensionalImage src={'/static/images/d18-keyboard-text.png'} conditional isOn={allOn || currentOn === "keyboard"} z={18}/>
-            <DimensionalImage src={'/static/images/d19-github-text.png'} conditional isOn={allOn || currentOn === "github"} z={19}/>
-            <DimensionalImage src={'/static/images/d20-stackoverflow-text.png'} conditional isOn={allOn || currentOn === "stackoverflow"} z={20}/>
-            <DimensionalImage src={'/static/images/d21-gmail-text.png'} conditional isOn={allOn || currentOn === "gmail"} z={21}/>
-            <DimensionalImage src={'/static/images/d22-card-text.png'} conditional isOn={allOn || currentOn === "card"} z={21}/>
-            <DimensionalImage src={'/static/images/d23-redbubble-text.png'} conditional isOn={allOn || currentOn === "redbubble"} z={21}/>
+            <DimensionalImage isMobile={isMobile} src={'/static/images/d1.png'} z={1}/>
+            <DimensionalImage isMobile={isMobile} src={'/static/images/d2.png'} z={2}/>
+            <DimensionalImage isMobile={isMobile} src={'/static/images/d3-keyboard-sh.png'} conditional isOn={allOn || currentOn === "keyboard"} z={3}/>
+            <DimensionalImage isMobile={isMobile} src={'/static/images/d22-card-sh.png'} conditional isOn={allOn || currentOn === "card"} z={4}/>
+            <DimensionalImage isMobile={isMobile} src={'/static/images/d4.png'} z={5}/>
+            <DimensionalImage isMobile={isMobile} src={'/static/images/d5-art-sh.png'} conditional isOn={allOn || currentOn === "art"} z={6}/>
+            <DimensionalImage isMobile={isMobile} src={'/static/images/d6.png'} z={7}/>
+            <DimensionalImage isMobile={isMobile} src={'/static/images/d7-github-sh.png'} conditional isOn={allOn || currentOn === "github"} z={8}/>
+            <DimensionalImage isMobile={isMobile} src={'/static/images/d8-stackoverflow-sh.png'} conditional isOn={allOn || currentOn === "stackoverflow"} z={9}/>
+            <DimensionalImage isMobile={isMobile} src={'/static/images/d9-gmail-sh.png'} conditional isOn={allOn || currentOn === "gmail"} z={10}/>
+            <DimensionalImage isMobile={isMobile} src={'/static/images/d10-redbubble-sh.png'} conditional isOn={allOn || currentOn === "redbubble"} z={10}/>
+            <DimensionalImage isMobile={isMobile} src={'/static/images/d11-book-sh.png'} conditional isOn={allOn || currentOn === "book"} z={11}/>
+            <DimensionalImage isMobile={isMobile} src={'/static/images/d12.png'} z={12}/>
+            <DimensionalImage isMobile={isMobile} src={'/static/images/d13-mobile-sh.png'} conditional isOn={allOn || currentOn === "mobile"} z={13}/>
+            <DimensionalImage isMobile={isMobile} src={'/static/images/d14.png'} z={14}/>
+            <DimensionalImage isMobile={isMobile} src={'/static/images/d15-book-text.png'} conditional isOn={allOn || currentOn === "book"} z={15}/>
+            <DimensionalImage isMobile={isMobile} src={'/static/images/d16-mobile-text.png'} conditional isOn={allOn || currentOn === "mobile"} z={16}/>
+            <DimensionalImage isMobile={isMobile} src={'/static/images/d17-art-text.png'} conditional isOn={allOn || currentOn === "art"} z={17}/>
+            <DimensionalImage isMobile={isMobile} src={'/static/images/d18-keyboard-text.png'} conditional isOn={allOn || currentOn === "keyboard"} z={18}/>
+            <DimensionalImage isMobile={isMobile} src={'/static/images/d19-github-text.png'} conditional isOn={allOn || currentOn === "github"} z={19}/>
+            <DimensionalImage isMobile={isMobile} src={'/static/images/d20-stackoverflow-text.png'} conditional isOn={allOn || currentOn === "stackoverflow"} z={20}/>
+            <DimensionalImage isMobile={isMobile} src={'/static/images/d21-gmail-text.png'} conditional isOn={allOn || currentOn === "gmail"} z={21}/>
+            <DimensionalImage isMobile={isMobile} src={'/static/images/d22-card-text.png'} conditional isOn={allOn || currentOn === "card"} z={21}/>
+            <DimensionalImage isMobile={isMobile} src={'/static/images/d23-redbubble-text.png'} conditional isOn={allOn || currentOn === "redbubble"} z={21}/>
 
-            <StyledSvg z={4}>
+            <StyledSvg isMobile={isMobile} z={4}>
                 <Keyboard/>
             </StyledSvg>
-            <StyledSvg z={4}>
+            <StyledSvg isMobile={isMobile} z={4}>
                 <Card/>
             </StyledSvg>
-            <StyledSvg z={6}>
+            <StyledSvg isMobile={isMobile} z={6}>
                 <Art/>
             </StyledSvg>
-            <StyledSvg z={8}>
+            <StyledSvg isMobile={isMobile} z={8}>
                 <Github/>
             </StyledSvg>
-            <StyledSvg z={9}>
+            <StyledSvg isMobile={isMobile} z={9}>
                 <Stackoverflow/>
             </StyledSvg>
-            <StyledSvg z={10}>
+            <StyledSvg isMobile={isMobile} z={10}>
                 <Gmail/>
             </StyledSvg>
-            <StyledSvg z={10}>
+            <StyledSvg isMobile={isMobile} z={10}>
                 <Redbubble/>
             </StyledSvg>
-            <StyledSvg z={11}>
+            <StyledSvg isMobile={isMobile} z={11}>
                 <Book/>
             </StyledSvg>
-            <StyledSvg z={13}>
+            <StyledSvg isMobile={isMobile} z={13}>
                 <Mobile/>
             </StyledSvg>
 
