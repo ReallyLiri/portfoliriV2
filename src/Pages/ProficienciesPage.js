@@ -5,6 +5,7 @@ import {ReactComponent as Neo4j} from '../assets/devicon/neo4j-plain.svg';
 import {ReactComponent as Pandas} from '../assets/devicon/pandas-plain.svg';
 import {ReactComponent as Sketch} from '../assets/devicon/sketch-plain.svg';
 import {ReactComponent as Expo} from '../assets/devicon/expo-plain.svg';
+import {ReactComponent as Netlify} from '../assets/devicon/netlify-plain.svg';
 import Back from "../Components/Back";
 import ScrollToTop from "../Components/ScrollToTop";
 
@@ -56,6 +57,8 @@ const nameToSvg = (name) => {
             return <Sketch/>;
         case "expo":
             return <Expo/>;
+        case "netlify":
+            return <Netlify/>;
         default:
             return null;
     }
