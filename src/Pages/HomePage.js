@@ -96,7 +96,7 @@ let globalCurrentOnSetTime = null
 let globalIsMobile = false
 
 const onClick = (name) => {
-    if (globalIsMobile && Date.now() - globalCurrentOnSetTime < 1000) {
+    if (globalIsMobile && Date.now() - globalCurrentOnSetTime < 200) {
         return
     }
     const [url, isExternal] = linkMapping[name]

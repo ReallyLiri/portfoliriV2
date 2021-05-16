@@ -12,34 +12,35 @@ const Page = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   text-align: start;
-  padding-left: 80px;
-  padding-bottom: 60px;
+  padding-left: ${props => props.isMobile ? 20 : 80}px;
+  padding-bottom: ${props => props.isMobile ? 10 : 60}px;
+  overflow: hidden;
 `
 
 const Devicon = styled.i`
-  font-size: 60px;
-  margin-left: 10px;
+  font-size: ${props => props.isMobile ? 32 : 60}px;
+  margin-left: ${props => props.isMobile ? 4 : 10}px;
 `
 
 const Svg = styled.div`
-  height: 60px;
-  width: 60px;
+  height: ${props => props.isMobile ? 32 : 60}px;
+  width: ${props => props.isMobile ? 32 : 60}px;
   background: transparent;
 
   svg {
-    height: 60px;
-    width: 60px;
+    height: ${props => props.isMobile ? 32 : 60}px;
+    width: ${props => props.isMobile ? 32 : 60}px;
 
     path, rect, polygon, circle {
       fill: black;
     }
   }
 
-  margin-left: 10px;
+  margin-left: ${props => props.isMobile ? 4 : 10}px;
 `;
 
 const Title = styled.div`
-  font-size: 16px;
+  font-size: ${props => props.isMobile ? 10 : 16}px;
   text-align: center;
   font-weight: bold;
 `
@@ -61,9 +62,12 @@ const nameToSvg = (name) => {
 
 const HorizontalStack = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: start;
+  overflow-x: ${props => props.overflow ? "auto" : "unset"};
+  padding-top: ${props => props.overflow ? "16px" : "unset"};
+  padding-bottom: ${props => props.overflow ? "16px" : "unset"};
 `
 
 const VerticalStack = styled.div`
@@ -75,23 +79,23 @@ const VerticalStack = styled.div`
 `
 
 const HorizontalDivider = styled.hr`
-  border-top: 4px solid black;
+  border-top: ${props => props.isMobile ? 2 : 4}px solid black;
   border-radius: 2px;
-  margin-top: 32px;
-  margin-right: 80px;
+  margin-top: ${props => props.isMobile ? 16 : 32}px;
+  margin-right: ${props => props.isMobile ? 16 : 80}px;
 `
 
 const VerticalDivider = styled.div`
-  border-left: 4px solid black;
+  border-left: ${props => props.isMobile ? 2 : 4}px solid black;
   border-radius: 2px;
-  margin-top: 32px;
-  height: 230px;
+  margin-top: ${props => props.isMobile ? 8 : 32}px;
+  height: ${props => props.isMobile ? 120 : 230}px;
   margin-right: 8px;
 `
 
 const StyledImage = styled.img`
-  width: 260px;
-  height: 260px;
+  width: ${props => props.isMobile ? 130 : 260}px;
+  height: ${props => props.isMobile ? 130 : 260}px;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
@@ -109,42 +113,48 @@ const ProficiencyImage = ({src, ...props}) =>
 const imageSrc = name => `/static/images/${name}.png`
 
 const ProficiencyName = styled.span`
-  padding-top: 12px;
+  padding-top: ${props => props.isMobile ? 8 : 12}px;
   text-align: center;
   font-weight: bold;
+  font-size: ${props => props.isMobile ? 10 : 16}px;
 `
 
-const ProficienciesPage = () => <React.Fragment>
-    <Back/>
-    <Page>
-        {
-            Object.entries(PROFICIENCIES).map((pair) => {
-                const name = pair[0];
-                const {image, list} = pair[1];
-                return (
-                    <React.Fragment>
-                        <HorizontalStack key={name}>
-                            <VerticalStack>
-                                <ProficiencyImage src={imageSrc(image)}/>
-                                <Title>{name}</Title>
-                            </VerticalStack>
-                            <VerticalDivider/>
-                            {
-                                list.map((prof) =>
-                                    <VerticalStack key={prof.name} padding={32}>
-                                        {prof.devicon && <Devicon className={`devicon-${prof.devicon}-plain`}/>}
-                                        {prof.svg && <Svg>{nameToSvg(prof.svg)}</Svg>}
-                                        <ProficiencyName>{prof.name}</ProficiencyName>
-                                    </VerticalStack>
-                                )
-                            }
-                        </HorizontalStack>
-                        <HorizontalDivider/>
-                    </React.Fragment>
-                )
-            })
-        }
-    </Page>
-</React.Fragment>
+const ProficienciesPage = ({dimensions}) => {
+    const {isMobile} = dimensions
+    return <React.Fragment>
+        <Back isMobile={isMobile}/>
+        <Page isMobile={isMobile}>
+            {
+                Object.entries(PROFICIENCIES).map((pair) => {
+                    const name = pair[0];
+                    const {image, list} = pair[1];
+                    return (
+                        <React.Fragment>
+                            <HorizontalStack key={name}>
+                                <VerticalStack>
+                                    <ProficiencyImage src={imageSrc(image)} isMobile={isMobile}/>
+                                    <Title isMobile={isMobile}>{name}</Title>
+                                </VerticalStack>
+                                <VerticalDivider isMobile={isMobile}/>
+                                <HorizontalStack overflow>
+                                    {
+                                        list.map((prof) =>
+                                            <VerticalStack key={prof.name} padding={isMobile ? 12 : 32}>
+                                                {prof.devicon && <Devicon className={`devicon-${prof.devicon}-plain`} isMobile={isMobile}/>}
+                                                {prof.svg && <Svg isMobile={isMobile}>{nameToSvg(prof.svg)}</Svg>}
+                                                <ProficiencyName isMobile={isMobile}>{prof.name}</ProficiencyName>
+                                            </VerticalStack>
+                                        )
+                                    }
+                                </HorizontalStack>
+                            </HorizontalStack>
+                            <HorizontalDivider isMobile={isMobile}/>
+                        </React.Fragment>
+                    )
+                })
+            }
+        </Page>
+    </React.Fragment>
+}
 
 export default ProficienciesPage
