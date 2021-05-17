@@ -17,11 +17,19 @@ const RouterComponent = () => {
     const [dimensions, setDimensions] = useState({isMobile: false})
 
     const resize = useCallback(() => {
+
+        const isMobile = window.innerWidth <= 700;
         setDimensions({
             height: window.innerHeight,
             width: window.innerWidth,
-            isMobile: window.innerWidth <= 700
+            isMobile: isMobile
         })
+
+        if (isMobile) {
+            console.error(window.innerHeight * 0.01)
+            document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+        }
+
     }, [setDimensions])
     useEffect(() => {
         resize()

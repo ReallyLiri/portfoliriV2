@@ -22,7 +22,7 @@ const OrientationWrapper = styled.div`
     width: 100vh;
     height: 100vw;
     position: absolute;
-    top: ${MobileWidthPercentage}%;
+    top: 100%;
     left: 0;
     overflow: hidden;
   }
@@ -116,21 +116,14 @@ const HomePage = ({dimensions}) => {
     const {isMobile} = dimensions;
     globalIsMobile = isMobile;
 
-    const preventDefault = e => {
-        e.preventDefault()
-    };
-
     useEffect(() => {
         if (!isMobile) {
             return
         }
-        document.body.style.position = "relative";
-        document.body.style.overflow = "hidden";
-        document.body.addEventListener("touchmove", preventDefault, {passive: false});
+        const originalBackgroundColor = document.body.style.backgroundColor
+        document.body.style.backgroundColor = "white";
         return () => {
-            document.body.style.position = "unset";
-            document.body.style.overflow = "unset";
-            document.body.removeEventListener("touchmove", preventDefault);
+            document.body.style.backgroundColor = originalBackgroundColor
         }
     }, [isMobile])
 
