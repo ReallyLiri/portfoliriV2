@@ -56,7 +56,7 @@ const IMAGES_TO_PREFETCH = [
     "profs-webserver.png"
 ]
 
-setInterval(() => IMAGES_TO_PREFETCH.forEach(url => new Image().src = url), 0)
+setTimeout(() => IMAGES_TO_PREFETCH.forEach(url => new Image().src = url), 0)
 
 ReactDOM.render(
     <React.StrictMode>
