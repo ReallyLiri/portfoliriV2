@@ -15,7 +15,7 @@ const Page = styled.div`
   justify-content: flex-start;
   text-align: start;
   padding-left: ${props => props.isMobile ? 20 : 80}px;
-  padding-bottom: ${props => props.isMobile ? 10 : 60}px;
+  padding-bottom: ${props => props.isMobile ? 35 : 60}px;
   overflow: hidden;
 `
 
