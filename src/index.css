@@ -16,6 +16,11 @@ img {
     outline-style: none;
 }
 
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 .placeholder {
     height: 100vh;
     display: flex;

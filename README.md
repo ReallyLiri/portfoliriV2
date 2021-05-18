@@ -4,6 +4,8 @@ This is my public portfolio, available at:
 
 [https://reallyliri.com](https://reallyliri.com)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3b07fa91-bcc4-4b3b-a2f4-5c50c4a35d27/deploy-status)](https://app.netlify.com/sites/portfoliri-v2/deploys)
+
 ## Configuration
 
 Content is highly configurable.
