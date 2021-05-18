@@ -1,18 +1,24 @@
-# TBD
+# Portfoliri - V2
 
-## Manual svg fixes
+This is my public portfolio, available at:
 
-* Remove `<title>` element
-* Add following to `<defs>` block:
+[https://reallyliri.com](https://reallyliri.com)
 
-```html
-    <filter id="blur">
-        <feGaussianBlur stdDeviation="4" />
-    </filter>
+## Configuration
+
+Content is highly configurable.
+
+Proficiencies are taken from static configuration at [proficiencies.js](./src/Content/proficiencies.js).
+
+Similarly, albums are taken from [galleries.js](src/Content/galleries.js)
+
+## imgur.py
+
+```bash
+pip install imgurpython pillow
+python imgur.py <album id>
 ```
 
-* In `<style>` block, find all `cls-` definitions with `opacity` defined, and add following:
+## License
 
-```css
-filter: url(#blur);
-```
+The code is licensed under `MIT` and is free to use. However, all rights are reserved on the gallery content and any other non-code properties.

@@ -1,6 +1,12 @@
 export const GALLERIES = {
     "drawings": {
         "images": [
+            {"src": "https://i.imgur.com/oikXw2q.jpg", "height": 4, "width": 3},
+            {"src": "https://i.imgur.com/WOWdF5a.jpg", "height": 3, "width": 4},
+            {"src": "https://i.imgur.com/VcgrZfI.jpg", "height": 4, "width": 3},
+            {"src": "https://i.imgur.com/U8CE9Ix.jpg", "height": 3, "width": 4},
+            {"src": "https://i.imgur.com/5YLESqI.jpg", "height": 58, "width": 45},
+            {"src": "https://i.imgur.com/Xq4mbRk.jpg", "height": 13, "width": 27},
             {
                 "src": "https://i.imgur.com/NIf6FBr.png",
                 "height": 19,
@@ -187,7 +193,7 @@ export const GALLERIES = {
                 "src": "https://i.imgur.com/3quCeuR.jpg"
             }
         ],
-        "rowHeight": 500,
+        "rowHeight": 400,
         "preview": "https://i.imgur.com/08lQQn7.png",
         "title": "Paintings and drawings done since 2017"
     },
