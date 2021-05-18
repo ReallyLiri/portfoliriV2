@@ -51,7 +51,7 @@ const StyledAnchor = styled.a`
 `
 
 const StyledGalleryContainer = styled.div`
-  margin-bottom: ${props => props.isMobile ? 20 : 100}px;
+  margin-bottom: ${props => props.isMobile ? 30 : 100}px;
 
   img, video, source {
     max-width: ${props => props.isMobile ? 75 : 80}%;
