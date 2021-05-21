@@ -121,10 +121,9 @@ const StyledLoader = styled.div`
   margin-top: unset;
 `
 
-const imageRender = ({index, onClick, photo, margin, key, loadedImages, setLoadedImages}) =>
-    <React.Fragment>
+const imageRender = ({index, onClick, photo, margin, key, animatedLoader, loadedImages, setLoadedImages}) =>
+    <React.Fragment key={key}>
         <StyledImage
-            key={key}
             alt={key}
             onLoad={() => setLoadedImages([...loadedImages, photo.src])}
             draggable="false"
@@ -133,15 +132,17 @@ const imageRender = ({index, onClick, photo, margin, key, loadedImages, setLoade
             {...photo}
             onClick={(event => onClick && onClick(event, {photo, index}))}
         />
-        <StyledLoader
-            className="lds-ripple"
-                      loaded={_.includes(loadedImages, photo.src)}
-            top={photo.height / 2 - 40}
-            left={photo.width / 2 + 40}
-        >
-            <div></div>
-            <div></div>
-        </StyledLoader>
+        {
+            animatedLoader && <StyledLoader
+                className="lds-ripple"
+                loaded={_.includes(loadedImages, photo.src)}
+                top={photo.height / 2 - 40}
+                left={photo.width / 2 + 40}
+            >
+                <div></div>
+                <div></div>
+            </StyledLoader>
+        }
     </React.Fragment>;
 
 const OneGallery = ({name, isMobile}) => {
