@@ -78,6 +78,10 @@ const StackGallery = styled.div`
 
 const TilesGallery = styled.div`
   margin: 0 ${props => props.isMobile ? 12 : 60}px 0 ${props => props.isMobile ? 12 : 60}px;
+
+  .react-photo-gallery--gallery > div {
+    align-items: flex-start;
+  }
 `
 
 const BackgroundImage = styled.img`
