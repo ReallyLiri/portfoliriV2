@@ -7,6 +7,7 @@ import MenuOption from "../Components/MenuOption";
 import ScrollToTop from "../Components/ScrollToTop";
 import {useHistory, useLocation} from "react-router-dom";
 import Back from "../Components/Back";
+import _ from "lodash";
 
 const Page = styled.div`
   width: 100vw;
@@ -108,23 +109,44 @@ const StyledImage = styled.img`
   cursor: pointer;
   margin: ${props => props.margin || "unset"};
   display: block;
+  opacity: ${props => props.loaded ? "unset" : 0};
 `
 
-const imageRender = ({index, onClick, photo, margin, key}) => {
-    return (
+const StyledLoader = styled.div`
+  height: unset;
+  width: unset;
+  top: ${props => props.top}px;
+  left: -${props => props.left}px;
+  display: ${props => props.loaded ? "none" : "unset"};
+  margin-top: unset;
+`
+
+const imageRender = ({index, onClick, photo, margin, key, loadedImages, setLoadedImages}) =>
+    <React.Fragment>
         <StyledImage
             key={key}
             alt={key}
+            onLoad={() => setLoadedImages([...loadedImages, photo.src])}
             draggable="false"
             margin={margin}
+            loaded={_.includes(loadedImages, photo.src)}
             {...photo}
             onClick={(event => onClick && onClick(event, {photo, index}))}
         />
-    );
-};
+        <StyledLoader
+            className="lds-ripple"
+                      loaded={_.includes(loadedImages, photo.src)}
+            top={photo.height / 2 - 40}
+            left={photo.width / 2 + 40}
+        >
+            <div></div>
+            <div></div>
+        </StyledLoader>
+    </React.Fragment>;
 
 const OneGallery = ({name, isMobile}) => {
     const {images, rowHeight, title, description, links, maxVw} = GALLERIES[name]
+    const [loadedImages, setLoadedImages] = useState([])
     const useTilesGallery = !!rowHeight
 
     return <StyledGalleryContainer isMobile={isMobile}>
@@ -153,7 +175,7 @@ const OneGallery = ({name, isMobile}) => {
                                 const newTab = window.open(images[obj.index].src, "_blank");
                                 newTab.focus();
                             }}
-                            renderImage={imageRender}
+                            renderImage={props => imageRender({...props, loadedImages, setLoadedImages})}
                         />
                     </TilesGallery>
                     : <StackGallery maxVw={maxVw}>
