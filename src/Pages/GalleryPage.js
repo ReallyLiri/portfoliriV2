@@ -99,6 +99,30 @@ const GalleryWrapper = styled.div`
   margin-top: ${props => props.isMobile ? 16 : 116}px;
 `
 
+const StyledImage = styled.img`
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  margin: ${props => props.margin || "unset"};
+  display: block;
+`
+
+const imageRender = ({index, onClick, photo, margin, key}) => {
+    return (
+        <StyledImage
+            key={key}
+            alt={key}
+            draggable="false"
+            margin={margin}
+            {...photo}
+            onClick={(event => onClick && onClick(event, {photo, index}))}
+        />
+    );
+};
+
 const OneGallery = ({name, isMobile}) => {
     const {images, rowHeight, title, description, links, maxVw} = GALLERIES[name]
     const useTilesGallery = !!rowHeight
@@ -129,6 +153,7 @@ const OneGallery = ({name, isMobile}) => {
                                 const newTab = window.open(images[obj.index].src, "_blank");
                                 newTab.focus();
                             }}
+                            renderImage={imageRender}
                         />
                     </TilesGallery>
                     : <StackGallery maxVw={maxVw}>
