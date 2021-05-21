@@ -143,6 +143,24 @@ const OneGallery = ({name, isMobile}) => {
     </StyledGalleryContainer>
 }
 
+const Footer = styled.div`
+  display: flex;
+  opacity: 30%;
+  width: 100%;
+  justify-content: center;
+  position: fixed;
+  bottom: ${props => props.isMobile ? 10 : 32}px;
+  left: 0;
+`
+
+const Copyrights = styled.span`
+  color: white;
+  font-size: ${props => props.isMobile ? 12 : 16}px;
+  background-color: deeppink;
+  padding: 3px;
+  border-radius: 2px;
+`
+
 const nextDegrees = () => Math.floor(Math.random() * 360)
 
 const GalleryPage = ({title, names, dimensions}) => {
@@ -186,6 +204,11 @@ const GalleryPage = ({title, names, dimensions}) => {
             <OneGallery isMobile={isMobile} name={names[galleryIndex]}/>
         </Page>
         <ScrollToTop isMobile={isMobile}/>
+        <Footer isMobile={isMobile}>
+            <Copyrights isMobile={isMobile}>
+                Liri Sokol © 1992-{new Date().getFullYear()}
+            </Copyrights>
+        </Footer>
     </React.Fragment>
 }
 
