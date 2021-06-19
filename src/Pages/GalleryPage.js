@@ -121,7 +121,7 @@ const StyledLoader = styled.div`
   margin-top: unset;
 `
 
-const imageRender = ({index, onClick, photo, margin, key, animatedLoader, loadedImages, setLoadedImages}) =>
+const imageRender = ({index, onClick, photo, margin, key, animatedLoader = true, loadedImages, setLoadedImages}) =>
     <React.Fragment key={key}>
         <StyledImage
             alt={key}

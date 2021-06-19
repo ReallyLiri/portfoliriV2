@@ -156,6 +156,7 @@ const HomePage = ({dimensions}) => {
             onMouseLeave={() => setAllOn(false)}
             text="Click on any highlighted item to explore its content"
             isMobile={isMobile}
+            vertical={isMobile}
         >
             <StyledText isMobile={isMobile}>?</StyledText>
         </MenuOption>

@@ -2,6 +2,7 @@ export const GALLERIES = {
     "drawings": {
         "images": [
             {"src": "https://i.imgur.com/oikXw2q.jpg", "height": 4, "width": 3},
+            {"src": "https://i.imgur.com/QymU1kv.jpg", "height": 3, "width": 4},
             {"src": "https://i.imgur.com/WOWdF5a.jpg", "height": 3, "width": 4},
             {"src": "https://i.imgur.com/VcgrZfI.jpg", "height": 4, "width": 3},
             {"src": "https://i.imgur.com/U8CE9Ix.jpg", "height": 3, "width": 4},
