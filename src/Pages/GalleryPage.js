@@ -239,6 +239,7 @@ const GalleryPage = ({title, names, dimensions}) => {
                     onClick={() => {
                         setGalleryIndex(i);
                         history.push({pathname: location.pathname, search: navigationService.buildSearchString({i})});
+                        navigationService.scrollToTop();
                     }}
                     text={GALLERIES[name].title}
                     circleColor="white"

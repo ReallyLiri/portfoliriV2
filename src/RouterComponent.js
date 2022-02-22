@@ -26,7 +26,6 @@ const RouterComponent = () => {
         })
 
         if (isMobile) {
-            console.error(window.innerHeight * 0.01)
             document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
         }
 

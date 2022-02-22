@@ -57,14 +57,13 @@ const MenuOption = ({className, top, circleColor, onMouseEnter, onMouseLeave, te
                 return
             }
             onClick && onClick()
-        }
-        }
-        onMouseEnter={() => {
+        }}
+        onMouseEnter={isMobile ? null : () => {
             setHovered(true);
             mouseEnterTime = Date.now()
             onMouseEnter && onMouseEnter();
         }}
-        onMouseLeave={() => {
+        onMouseLeave={isMobile ? null : () => {
             setHovered(false);
             onMouseLeave && onMouseLeave();
         }}
