@@ -48,7 +48,7 @@ const RouterComponent = () => {
                 <ProficienciesPage dimensions={dimensions} {...props}/>
             )}/>
             <Route path='/drawings' render={props => (
-                <GalleryPage title="Paintings and Drawings" names={["drawings", "wall", "king", "drawings-old"]} dimensions={dimensions} {...props}/>
+                <GalleryPage title="Paintings and Drawings" names={["drawings", "estrogen", "wall", "king", "drawings-old"]} dimensions={dimensions} {...props}/>
             )}/>
             <Route path='/uiux' render={props => (
                 <GalleryPage title="Web/Mobile Designs" names={["corvus", "horrorun", "junana", "complicube", "uiux"]} dimensions={dimensions} {...props}/>
