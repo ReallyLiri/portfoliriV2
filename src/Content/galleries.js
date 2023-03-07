@@ -1,6 +1,9 @@
 export const GALLERIES = {
   "drawings": {
     "images": [
+      { "src": "https://i.imgur.com/gWyLkPj.jpg", "height": 8, "width": 11 },
+      { "src": "https://i.imgur.com/sm5lg6y.jpg", "height": 3, "width": 4 },
+      { "src": "https://i.imgur.com/2bo6iXx.jpg", "height": 4, "width": 3 },
       {
         "src": "https://i.imgur.com/2W2IsPn.jpg",
         "height": 79,
