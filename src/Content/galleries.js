@@ -3,6 +3,8 @@ export const GALLERIES = {
     "images": [
       { "src": "https://i.imgur.com/gWyLkPj.jpg", "height": 8, "width": 11 },
       { "src": "https://i.imgur.com/sm5lg6y.jpg", "height": 3, "width": 4 },
+      { "src": "https://i.imgur.com/LSUSRPW.jpg", "height": 61, "width": 94 },
+      { "src": "https://i.imgur.com/hxSQBV2.jpg", "height": 52, "width": 125 },
       { "src": "https://i.imgur.com/2bo6iXx.jpg", "height": 4, "width": 3 },
       {
         "src": "https://i.imgur.com/2W2IsPn.jpg",
