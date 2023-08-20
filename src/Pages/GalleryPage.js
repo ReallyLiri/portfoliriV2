@@ -203,7 +203,11 @@ const OneGallery = ({ name, isMobile }) => {
               targetRowHeight={rowHeight}
               photos={images}
               onClick={(event, obj) => {
-                const newTab = window.open(images[obj.index].src, "_blank");
+                const newTab = window.open(
+                  images[obj.index].src,
+                  "_blank",
+                  "noopener,noreferrer",
+                );
                 newTab.focus();
               }}
               renderImage={(props) =>
