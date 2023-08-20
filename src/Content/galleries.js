@@ -1,6 +1,13 @@
 export const GALLERIES = {
   drawings: {
     images: [
+      { src: "https://i.imgur.com/DdLfbgF.jpg", height: 3, width: 4 },
+      { src: "https://i.imgur.com/FrMYm80.jpg", height: 95, width: 67 },
+      { src: "https://i.imgur.com/H9po1Kx.jpg", height: 94, width: 67 },
+      { src: "https://i.imgur.com/BTlJRAb.jpg", height: 65, width: 97 },
+      { src: "https://i.imgur.com/o6TpfCD.png", height: 12, width: 17 },
+      { src: "https://i.imgur.com/26u8Lnj.png", height: 41, width: 88 },
+      { src: "https://i.imgur.com/MZyYjGU.jpg", height: 5, width: 7 },
       { src: "https://i.imgur.com/gWyLkPj.jpg", height: 8, width: 11 },
       { src: "https://i.imgur.com/sm5lg6y.jpg", height: 3, width: 4 },
       { src: "https://i.imgur.com/LSUSRPW.jpg", height: 61, width: 94 },

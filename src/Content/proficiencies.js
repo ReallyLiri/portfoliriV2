@@ -63,6 +63,7 @@ export const PROFICIENCIES = {
       { name: "bash", devicon: "bash" },
       { name: "Expo", svg: "expo" },
       { name: "Netlify", svg: "netlify" },
+      { name: "Terraform", devicon: "terraform" },
     ],
   },
 
@@ -85,6 +86,7 @@ export const PROFICIENCIES = {
       { name: "FireBase", devicon: "firebase" },
       { name: "MongoDB", devicon: "mongodb" },
       { name: "Neo4j", svg: "neo4j" },
+      { name: "Kafka", svg: "apachekafka" },
     ],
   },
 
