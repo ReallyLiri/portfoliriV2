@@ -107,16 +107,16 @@ const AboutPage = ({ dimensions }) => {
         Artist · Designer · Developer
       </Paragraph>
       <Paragraph isMobile={isMobile}>
-        Although my main ambition is riding on the back of a dragon towards the
-        sunset, "Holy Diver" playing on the background, I'm compromising on
-        being a mad (computer) scientist at day and applying the shapes of my
-        mind to the materialized world at night.
+        While my main ambition is riding on the back of a dragon toward the
+        sunset with "Holy Diver" playing in the background, I compromise by
+        being a mad (computer) scientist during the day and applying the shapes
+        of my mind to the materialized world at night.
       </Paragraph>
       <Paragraph isMobile={isMobile}>
-        I believe we live in the best of all possible worlds, that we are all a
-        part of a hive with one a collective mind and that our perception has
-        the power to shape the very core of existence. Oh, and cats rule the
-        world. Of course.
+        I believe we live in the best of all possible worlds, that we are all
+        part of a hive with a collective mind, and that our perception has the
+        power to shape the very core of existence. Oh, and cats rule the world.
+        Of course.
       </Paragraph>
       <HorizontalStack>
         <SocialLink
