@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components/macro";
+import styled from "styled-components";
 import { GALLERIES } from "../Content/galleries";
 import Gallery from "react-photo-gallery";
 import navigationService from "../utils/navigationService";
@@ -208,7 +208,7 @@ const OneGallery = ({ name, isMobile }) => {
                   "_blank",
                   "noopener,noreferrer",
                 );
-                newTab.focus();
+                newTab?.focus();
               }}
               renderImage={(props) =>
                 imageRender({ ...props, loadedImages, setLoadedImages })

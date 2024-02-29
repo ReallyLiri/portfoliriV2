@@ -1,9 +1,17 @@
 export const GALLERIES = {
   drawings: {
     images: [
+      { src: "https://i.imgur.com/wb9kEBJ.png", height: 85, width: 93 },
+      { src: "https://i.imgur.com/DKnwcN8.png", height: 64, width: 51 },
+      { src: "https://i.imgur.com/3B4MxEl.jpg", height: 96, width: 137 },
+      { src: "https://i.imgur.com/sD18ZKr.png", height: 17, width: 21 },
+      { src: "https://i.imgur.com/POTD1u2.png", height: 37, width: 52 },
+      { src: "https://i.imgur.com/QgUa6mJ.jpg", height: 4, width: 3 },
+      { src: "https://i.imgur.com/TOp7r2F.png", height: 46, width: 37 },
+      { src: "https://i.imgur.com/uzCcIbC.png", height: 71, width: 97 },
+      { src: "https://i.imgur.com/4KrHpmZ.jpg", height: 97, width: 69 },
       { src: "https://i.imgur.com/DdLfbgF.jpg", height: 3, width: 4 },
       { src: "https://i.imgur.com/FrMYm80.jpg", height: 95, width: 67 },
-      { src: "https://i.imgur.com/H9po1Kx.jpg", height: 94, width: 67 },
       { src: "https://i.imgur.com/BTlJRAb.jpg", height: 65, width: 97 },
       { src: "https://i.imgur.com/o6TpfCD.png", height: 12, width: 17 },
       { src: "https://i.imgur.com/26u8Lnj.png", height: 41, width: 88 },
@@ -69,20 +77,14 @@ export const GALLERIES = {
         width: 37,
       },
       {
-        src: "https://i.imgur.com/ZNPq84j.jpg",
-        height: 4,
-        width: 3,
-      },
-      {
         src: "https://i.imgur.com/9h5abMz.jpg",
         height: 4,
         width: 3,
       },
-      {
-        src: "https://i.imgur.com/oikXw2q.jpg",
-        height: 4,
-        width: 3,
-      },
+      { src: "https://i.imgur.com/M3ilRoC.png", height: 79, width: 225 },
+      { src: "https://i.imgur.com/dvSaUsB.png", height: 91, width: 53 },
+      { src: "https://i.imgur.com/OmeCgmo.png", height: 71, width: 69 },
+      { src: "https://i.imgur.com/wZ3Jhzn.png", height: 7, width: 5 },
       {
         src: "https://i.imgur.com/QymU1kv.jpg",
         height: 3,
@@ -99,19 +101,9 @@ export const GALLERIES = {
         width: 3,
       },
       {
-        src: "https://i.imgur.com/U8CE9Ix.jpg",
-        height: 3,
-        width: 4,
-      },
-      {
         src: "https://i.imgur.com/5YLESqI.jpg",
         height: 58,
         width: 45,
-      },
-      {
-        src: "https://i.imgur.com/Xq4mbRk.jpg",
-        height: 13,
-        width: 27,
       },
       {
         src: "https://i.imgur.com/NIf6FBr.png",
@@ -144,11 +136,6 @@ export const GALLERIES = {
         width: 53,
       },
       {
-        src: "https://i.imgur.com/R7tyHuP.jpg",
-        height: 57,
-        width: 79,
-      },
-      {
         src: "https://i.imgur.com/cfoCMdf.jpg",
         height: 3,
         width: 4,
@@ -157,11 +144,6 @@ export const GALLERIES = {
         src: "https://i.imgur.com/1FElTGc.jpg",
         height: 84,
         width: 115,
-      },
-      {
-        src: "https://i.imgur.com/6sERczT.jpg",
-        height: 66,
-        width: 49,
       },
       {
         src: "https://i.imgur.com/hIiyo1D.jpg",
@@ -192,11 +174,6 @@ export const GALLERIES = {
         width: 126,
         height: 89,
         src: "https://i.imgur.com/M5P8i6C.jpg",
-      },
-      {
-        width: 45,
-        height: 59,
-        src: "https://i.imgur.com/bWSyOBx.jpg",
       },
       {
         width: 3,
@@ -246,22 +223,12 @@ export const GALLERIES = {
       {
         width: 4,
         height: 3,
-        src: "https://i.imgur.com/QGZLwWt.jpg",
-      },
-      {
-        width: 4,
-        height: 3,
         src: "https://i.imgur.com/5tocNvt.jpg",
       },
       {
         width: 49,
         height: 64,
         src: "https://i.imgur.com/9CPheDY.jpg",
-      },
-      {
-        width: 3,
-        height: 4,
-        src: "https://i.imgur.com/SVLOWAh.jpg",
       },
       {
         width: 4,
@@ -273,16 +240,12 @@ export const GALLERIES = {
         height: 4,
         src: "https://i.imgur.com/1NnJokx.png",
       },
-      {
-        width: 3,
-        height: 4,
-        src: "https://i.imgur.com/9RivW9I.jpg",
-      },
-      {
-        width: 3,
-        height: 4,
-        src: "https://i.imgur.com/cyEtahg.jpg",
-      },
+      { src: "https://i.imgur.com/GvW92ZH.png", height: 95, width: 73 },
+      { src: "https://i.imgur.com/TH4Keax.png", height: 7, width: 5 },
+      { src: "https://i.imgur.com/LuwCA1n.png", height: 7, width: 5 },
+      { src: "https://i.imgur.com/5BhWBo8.png", height: 7, width: 5 },
+      { src: "https://i.imgur.com/62G6RIR.png", height: 62, width: 45 },
+      { src: "https://i.imgur.com/SmO0OJ8.png", height: 27, width: 40 },
       {
         width: 7,
         height: 5,

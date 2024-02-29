@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useState } from "react";
 import MenuOption from "./MenuOption";
 import navigationService from "../utils/navigationService";
-import styled from "styled-components/macro";
+import styled from "styled-components";
 import _ from "lodash";
 
 const StyledMenuOption = styled(MenuOption)`

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components/macro";
+import styled from "styled-components";
 import navigationService from "../utils/navigationService";
 import { ReactComponent as Art } from "../assets/art.svg";
 import { ReactComponent as Book } from "../assets/book.svg";

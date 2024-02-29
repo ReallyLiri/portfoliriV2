@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components/macro";
+import styled from "styled-components";
 import Back from "../Components/Back";
 import navigationService from "../utils/navigationService";
 import FontAwesome from "react-fontawesome";
