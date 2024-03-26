@@ -1,6 +1,8 @@
 export const GALLERIES = {
   drawings: {
     images: [
+      { src: "https://i.imgur.com/lIPw0OM.jpg", height: 95, width: 67 },
+      { src: "https://i.imgur.com/r49DGF9.jpg", height: 41, width: 57 },
       { src: "https://i.imgur.com/wb9kEBJ.png", height: 85, width: 93 },
       { src: "https://i.imgur.com/DKnwcN8.png", height: 64, width: 51 },
       { src: "https://i.imgur.com/3B4MxEl.jpg", height: 96, width: 137 },
