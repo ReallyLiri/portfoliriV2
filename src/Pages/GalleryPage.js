@@ -9,6 +9,9 @@ import { useHistory, useLocation } from "react-router-dom";
 import Back from "../Components/Back";
 import _ from "lodash";
 
+// see https://codeberg.org/rimgo/instances
+const RIMGO = "rimgo.catsarch.com";
+
 const Page = styled.div`
   width: 100vw;
   position: absolute;
@@ -204,7 +207,7 @@ const OneGallery = ({ name, isMobile }) => {
               photos={images}
               onClick={(event, obj) => {
                 const newTab = window.open(
-                  images[obj.index].src,
+                  images[obj.index].src.replace("i.imgur.com", RIMGO),
                   "_blank",
                   "noopener,noreferrer",
                 );
