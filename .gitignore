@@ -1,15 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-**/.idea/contentModel.xml
-**/.idea/dictionaries
-**/.idea/libraries
-**/.idea/modules
-**/.idea/modules.xml
-**/.idea/shelf
-**/.idea/tasks.xml
-**/.idea/uiDesigner.xml
-**/.idea/usage.statistics.xml
-**/.idea/workspace.xml
+.idea
 
 # dependencies
 /node_modules

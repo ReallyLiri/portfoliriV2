@@ -17,8 +17,8 @@ Similarly, albums are taken from [galleries.js](src/Content/galleries.js)
 ## imgur.py
 
 ```bash
-pip install imgurpython pillow
-python imgur.py <album id>
+uv sync
+uv run imgur.py <album id>
 ```
 
 ## License

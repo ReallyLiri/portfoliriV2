@@ -1,6 +1,12 @@
 export const GALLERIES = {
   drawings: {
     images: [
+      { src: "https://i.imgur.com/U5f9Cic.png", height: 89, width: 123 },
+      { src: "https://i.imgur.com/eR5KiqF.png", height: 67, width: 96 },
+      { src: "https://i.imgur.com/Hsx0aer.jpeg", height: 97, width: 77 },
+      { src: "https://i.imgur.com/JieA7rf.png", height: 67, width: 82 },
+      { src: "https://i.imgur.com/k8uLOMc.jpeg", height: 40, width: 59 },
+      { src: "https://i.imgur.com/EaRqWDr.jpeg", height: 29, width: 21 },
       { src: "https://i.imgur.com/lIPw0OM.jpg", height: 95, width: 67 },
       { src: "https://i.imgur.com/r49DGF9.jpg", height: 41, width: 57 },
       { src: "https://i.imgur.com/wb9kEBJ.png", height: 85, width: 93 },
