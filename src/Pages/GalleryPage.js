@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import styled from "styled-components";
 import { GALLERIES } from "../Content/galleries";
 import Gallery from "react-photo-gallery";
@@ -120,6 +120,7 @@ const StyledImage = styled.img`
   margin: ${(props) => props.margin || "unset"};
   display: block;
   opacity: ${(props) => (props.loaded ? "unset" : 0)};
+  transition: opacity 0.3s ease-in-out;
 `;
 
 const StyledLoader = styled.div`
@@ -131,44 +132,59 @@ const StyledLoader = styled.div`
   margin-top: unset;
 `;
 
-const imageRender = ({
+const ImageRenderer = React.memo(({
   index,
   onClick,
   photo,
   margin,
   key,
   animatedLoader = true,
-  loadedImages,
-  setLoadedImages,
-}) => (
-  <React.Fragment key={key}>
-    <StyledImage
-      alt={key}
-      onLoad={() => setLoadedImages([...loadedImages, photo.src])}
-      draggable="false"
-      margin={margin}
-      loaded={_.includes(loadedImages, photo.src)}
-      {...photo}
-      onClick={(event) => onClick && onClick(event, { photo, index })}
-    />
-    {animatedLoader && (
-      <StyledLoader
-        className="lds-ripple"
-        loaded={_.includes(loadedImages, photo.src)}
-        top={photo.height / 2 - 40}
-        left={photo.width / 2 + 40}
-      >
-        <div></div>
-        <div></div>
-      </StyledLoader>
-    )}
-  </React.Fragment>
-);
+  lazyLoading,
+}) => {
+  const imgRef = useRef();
+  const { loadedSrcs, visibleSrcs, observe, markAsLoaded } = lazyLoading;
+  const isVisible = visibleSrcs.has(photo.src);
+  const isLoaded = loadedSrcs.has(photo.src);
+
+  useEffect(() => {
+    if (imgRef.current && !isVisible) {
+      observe(imgRef.current, photo.src);
+    }
+  }, [observe, photo.src, isVisible]);
+
+  return (
+    <React.Fragment key={key}>
+      <StyledImage
+        ref={imgRef}
+        alt={key}
+        onLoad={() => markAsLoaded(photo.src)}
+        draggable="false"
+        margin={margin}
+        loaded={isLoaded}
+        src={isVisible ? photo.src : undefined}
+        width={photo.width}
+        height={photo.height}
+        onClick={(event) => onClick && onClick(event, { photo, index })}
+      />
+      {animatedLoader && (
+        <StyledLoader
+          className="lds-ripple"
+          loaded={isLoaded}
+          top={photo.height / 2 - 40}
+          left={photo.width / 2 + 40}
+        >
+          <div></div>
+          <div></div>
+        </StyledLoader>
+      )}
+    </React.Fragment>
+  );
+});
 
 const OneGallery = ({ name, isMobile }) => {
   const { images, rowHeight, title, description, links, maxVw } =
     GALLERIES[name];
-  const [loadedImages, setLoadedImages] = useState([]);
+  const lazyLoading = useLazyLoading();
   const useTilesGallery = !!rowHeight;
 
   return (
@@ -210,29 +226,23 @@ const OneGallery = ({ name, isMobile }) => {
                 );
                 newTab?.focus();
               }}
-              renderImage={(props) =>
-                imageRender({ ...props, loadedImages, setLoadedImages })
-              }
+              renderImage={(props) => (
+                <ImageRenderer {...props} lazyLoading={lazyLoading} />
+              )}
             />
           </TilesGallery>
         ) : (
           <StackGallery maxVw={maxVw}>
-            {images.map((image) =>
-              image.src.endsWith("mp4") ? (
-                <video
-                  key={image.src}
-                  width={image.width}
-                  height={image.height}
-                  autoPlay
-                  controls
-                  loop
-                >
-                  <source src={image.src} type="video/mp4" />
-                </video>
-              ) : (
-                <img key={image.src} src={image.src} alt={image.src} />
-              ),
-            )}
+            {images.map((image) => (
+              <LazyMedia
+                key={image.src}
+                src={image.src}
+                width={image.width}
+                height={image.height}
+                isVideo={image.src.endsWith("mp4")}
+                lazyLoading={lazyLoading}
+              />
+            ))}
           </StackGallery>
         )}
       </GalleryWrapper>
@@ -257,6 +267,90 @@ const Copyrights = styled.span`
   padding: 3px;
   border-radius: 2px;
 `;
+
+const useLazyLoading = () => {
+  const [loadedSrcs, setLoadedSrcs] = useState(new Set());
+  const [visibleSrcs, setVisibleSrcs] = useState(new Set());
+  const observerRef = useRef();
+
+  const observe = useCallback((element, src) => {
+    if (!observerRef.current) {
+      observerRef.current = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const src = entry.target.dataset.src;
+            if (entry.isIntersecting && src) {
+              setVisibleSrcs(prev => new Set([...prev, src]));
+              observerRef.current.unobserve(entry.target);
+            }
+          });
+        },
+        { rootMargin: '100px' }
+      );
+    }
+
+    if (element) {
+      element.dataset.src = src;
+      observerRef.current.observe(element);
+    }
+  }, []);
+
+  const markAsLoaded = useCallback((src) => {
+    setLoadedSrcs(prev => new Set([...prev, src]));
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, []);
+
+  return { loadedSrcs, visibleSrcs, observe, markAsLoaded };
+};
+
+const LazyMedia = ({ src, width, height, isVideo, lazyLoading }) => {
+  const mediaRef = useRef();
+  const { loadedSrcs, visibleSrcs, observe, markAsLoaded } = lazyLoading;
+  const isVisible = visibleSrcs.has(src);
+  const isLoaded = loadedSrcs.has(src);
+
+  useEffect(() => {
+    if (mediaRef.current && !isVisible) {
+      observe(mediaRef.current, src);
+    }
+  }, [observe, src, isVisible]);
+
+  if (isVideo) {
+    return (
+      <video
+        ref={mediaRef}
+        key={src}
+        width={width}
+        height={height}
+        autoPlay={isVisible}
+        controls
+        loop
+        style={{ opacity: isLoaded ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }}
+        onLoadStart={() => markAsLoaded(src)}
+      >
+        {isVisible && <source src={src} type="video/mp4" />}
+      </video>
+    );
+  }
+
+  return (
+    <img
+      ref={mediaRef}
+      key={src}
+      src={isVisible ? src : undefined}
+      alt={src}
+      style={{ opacity: isLoaded ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }}
+      onLoad={() => markAsLoaded(src)}
+    />
+  );
+};
 
 const nextDegrees = () => Math.floor(Math.random() * 360);
 
