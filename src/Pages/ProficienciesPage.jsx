@@ -1,11 +1,11 @@
 import React from "react";
 import { PROFICIENCIES } from "../Content/proficiencies";
 import styled from "styled-components";
-import { ReactComponent as Neo4j } from "../assets/devicon/neo4j-plain.svg";
-import { ReactComponent as Pandas } from "../assets/devicon/pandas-plain.svg";
-import { ReactComponent as Sketch } from "../assets/devicon/sketch-plain.svg";
-import { ReactComponent as Expo } from "../assets/devicon/expo-plain.svg";
-import { ReactComponent as Netlify } from "../assets/devicon/netlify-plain.svg";
+import Neo4j from "../assets/devicon/neo4j-plain.svg?react";
+import Pandas from "../assets/devicon/pandas-plain.svg?react";
+import Sketch from "../assets/devicon/sketch-plain.svg?react";
+import Expo from "../assets/devicon/expo-plain.svg?react";
+import Netlify from "../assets/devicon/netlify-plain.svg?react";
 import Back from "../Components/Back";
 import ScrollToTop from "../Components/ScrollToTop";
 

@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import navigationService from "../utils/navigationService";
-import { ReactComponent as Art } from "../assets/art.svg";
-import { ReactComponent as Book } from "../assets/book.svg";
-import { ReactComponent as Github } from "../assets/github.svg";
-import { ReactComponent as Keyboard } from "../assets/keyboard.svg";
-import { ReactComponent as Mobile } from "../assets/mobile.svg";
-import { ReactComponent as Stackoverflow } from "../assets/stackoverflow.svg";
-import { ReactComponent as Gmail } from "../assets/gmail.svg";
-import { ReactComponent as Card } from "../assets/card.svg";
-import { ReactComponent as Redbubble } from "../assets/redbubble.svg";
+import Art from "../assets/art.svg?react";
+import Book from "../assets/book.svg?react";
+import Github from "../assets/github.svg?react";
+import Keyboard from "../assets/keyboard.svg?react";
+import Mobile from "../assets/mobile.svg?react";
+import Stackoverflow from "../assets/stackoverflow.svg?react";
+import Gmail from "../assets/gmail.svg?react";
+import Card from "../assets/card.svg?react";
+import Redbubble from "../assets/redbubble.svg?react";
 import MenuOption from "../Components/MenuOption";
 
 const MobileWidthPercentage = window.innerHeight < 700 ? 93 : 87;
