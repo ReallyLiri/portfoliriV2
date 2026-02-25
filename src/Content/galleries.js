@@ -1,6 +1,56 @@
 export const GALLERIES = {
   drawings: {
     images: [
+      {
+        src: "./gallery/drawings/PXL_20251223_170546815.jpg",
+        height: 4759,
+        width: 6156,
+      },
+      {
+        src: "./gallery/drawings/PXL_20260127_183225622.jpg",
+        height: 3533,
+        width: 2587,
+      },
+      {
+        src: "./gallery/drawings/PXL_20260210_183333989.jpg",
+        height: 2203,
+        width: 2184,
+      },
+      {
+        src: "./gallery/drawings/PXL_20250422_153527563.jpg",
+        height: 825,
+        width: 931,
+      },
+      {
+        src: "./gallery/drawings/PXL_20250702_175915655.jpg",
+        height: 772,
+        width: 1067,
+      },
+      {
+        src: "./gallery/drawings/PXL_20250723_173553918.jpg",
+        height: 2742,
+        width: 3175,
+      },
+      {
+        src: "./gallery/drawings/PXL_20250729_172050353.jpg",
+        height: 3841,
+        width: 2568,
+      },
+      {
+        src: "./gallery/drawings/PXL_20250909_184542274.jpg",
+        height: 2163,
+        width: 3695,
+      },
+      {
+        src: "./gallery/drawings/PXL_20251111_183409068.jpg",
+        height: 344,
+        width: 489,
+      },
+      {
+        src: "./gallery/drawings/PXL_20251111_183435458.jpg",
+        height: 2586,
+        width: 3601,
+      },
       { src: "./gallery/drawings/U5f9Cic.png", height: 89, width: 123 },
       { src: "./gallery/drawings/eR5KiqF.png", height: 67, width: 96 },
       { src: "./gallery/drawings/Hsx0aer.jpeg", height: 97, width: 77 },

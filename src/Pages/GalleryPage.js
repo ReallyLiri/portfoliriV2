@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useCallback } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { GALLERIES } from "../Content/galleries";
 import Gallery from "react-photo-gallery";
@@ -7,7 +7,6 @@ import MenuOption from "../Components/MenuOption";
 import ScrollToTop from "../Components/ScrollToTop";
 import { useHistory, useLocation } from "react-router-dom";
 import Back from "../Components/Back";
-import _ from "lodash";
 
 const Page = styled.div`
   width: 100vw;
@@ -132,54 +131,56 @@ const StyledLoader = styled.div`
   margin-top: unset;
 `;
 
-const ImageRenderer = React.memo(({
-  index,
-  onClick,
-  photo,
-  margin,
-  key,
-  animatedLoader = true,
-  lazyLoading,
-}) => {
-  const imgRef = useRef();
-  const { loadedSrcs, visibleSrcs, observe, markAsLoaded } = lazyLoading;
-  const isVisible = visibleSrcs.has(photo.src);
-  const isLoaded = loadedSrcs.has(photo.src);
+const ImageRenderer = React.memo(
+  ({
+    index,
+    onClick,
+    photo,
+    margin,
+    key,
+    animatedLoader = true,
+    lazyLoading,
+  }) => {
+    const imgRef = useRef();
+    const { loadedSrcs, visibleSrcs, observe, markAsLoaded } = lazyLoading;
+    const isVisible = visibleSrcs.has(photo.src);
+    const isLoaded = loadedSrcs.has(photo.src);
 
-  useEffect(() => {
-    if (imgRef.current && !isVisible) {
-      observe(imgRef.current, photo.src);
-    }
-  }, [observe, photo.src, isVisible]);
+    useEffect(() => {
+      if (imgRef.current && !isVisible) {
+        observe(imgRef.current, photo.src);
+      }
+    }, [observe, photo.src, isVisible]);
 
-  return (
-    <React.Fragment key={key}>
-      <StyledImage
-        ref={imgRef}
-        alt={key}
-        onLoad={() => markAsLoaded(photo.src)}
-        draggable="false"
-        margin={margin}
-        loaded={isLoaded}
-        src={isVisible ? photo.src : undefined}
-        width={photo.width}
-        height={photo.height}
-        onClick={(event) => onClick && onClick(event, { photo, index })}
-      />
-      {animatedLoader && (
-        <StyledLoader
-          className="lds-ripple"
+    return (
+      <React.Fragment key={key}>
+        <StyledImage
+          ref={imgRef}
+          alt={key}
+          onLoad={() => markAsLoaded(photo.src)}
+          draggable="false"
+          margin={margin}
           loaded={isLoaded}
-          top={photo.height / 2 - 40}
-          left={photo.width / 2 + 40}
-        >
-          <div></div>
-          <div></div>
-        </StyledLoader>
-      )}
-    </React.Fragment>
-  );
-});
+          src={isVisible ? photo.src : undefined}
+          width={photo.width}
+          height={photo.height}
+          onClick={(event) => onClick && onClick(event, { photo, index })}
+        />
+        {animatedLoader && (
+          <StyledLoader
+            className="lds-ripple"
+            loaded={isLoaded}
+            top={photo.height / 2 - 40}
+            left={photo.width / 2 + 40}
+          >
+            <div></div>
+            <div></div>
+          </StyledLoader>
+        )}
+      </React.Fragment>
+    );
+  },
+);
 
 const OneGallery = ({ name, isMobile }) => {
   const { images, rowHeight, title, description, links, maxVw } =
@@ -280,12 +281,12 @@ const useLazyLoading = () => {
           entries.forEach((entry) => {
             const src = entry.target.dataset.src;
             if (entry.isIntersecting && src) {
-              setVisibleSrcs(prev => new Set([...prev, src]));
+              setVisibleSrcs((prev) => new Set([...prev, src]));
               observerRef.current.unobserve(entry.target);
             }
           });
         },
-        { rootMargin: '100px' }
+        { rootMargin: "100px" },
       );
     }
 
@@ -296,7 +297,7 @@ const useLazyLoading = () => {
   }, []);
 
   const markAsLoaded = useCallback((src) => {
-    setLoadedSrcs(prev => new Set([...prev, src]));
+    setLoadedSrcs((prev) => new Set([...prev, src]));
   }, []);
 
   useEffect(() => {
@@ -332,7 +333,10 @@ const LazyMedia = ({ src, width, height, isVideo, lazyLoading }) => {
         autoPlay={isVisible}
         controls
         loop
-        style={{ opacity: isLoaded ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }}
+        style={{
+          opacity: isLoaded ? 1 : 0,
+          transition: "opacity 0.3s ease-in-out",
+        }}
         onLoadStart={() => markAsLoaded(src)}
       >
         {isVisible && <source src={src} type="video/mp4" />}
@@ -346,7 +350,10 @@ const LazyMedia = ({ src, width, height, isVideo, lazyLoading }) => {
       key={src}
       src={isVisible ? src : undefined}
       alt={src}
-      style={{ opacity: isLoaded ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }}
+      style={{
+        opacity: isLoaded ? 1 : 0,
+        transition: "opacity 0.3s ease-in-out",
+      }}
       onLoad={() => markAsLoaded(src)}
     />
   );
