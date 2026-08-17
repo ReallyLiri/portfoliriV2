@@ -17,6 +17,76 @@ export const GALLERIES = {
         width: 2184,
       },
       {
+        src: "./gallery/drawings/PXL_20260310_164417890.png",
+        height: 2864,
+        width: 4021,
+      },
+      {
+        src: "./gallery/drawings/PXL_20260310_183037602.jpg",
+        height: 2733,
+        width: 3833,
+      },
+      {
+        src: "./gallery/drawings/PXL_20260331_170348267.jpg",
+        height: 2788,
+        width: 3921,
+      },
+      {
+        src: "./gallery/drawings/PXL_20260408_175900262.jpg",
+        height: 2593,
+        width: 3789,
+      },
+      {
+        src: "./gallery/drawings/PXL_20260414_171829071.jpg",
+        height: 2860,
+        width: 3934,
+      },
+      {
+        src: "./gallery/drawings/PXL_20260414_171843616.jpg",
+        height: 2707,
+        width: 3906,
+      },
+      {
+        src: "./gallery/drawings/PXL_20260512_172233750.png",
+        height: 3025,
+        width: 2105,
+      },
+      {
+        src: "./gallery/drawings/PXL_20260512_172307316.jpg",
+        height: 2768,
+        width: 3982,
+      },
+      {
+        src: "./gallery/drawings/PXL_20260603_104824309.jpg",
+        height: 2800,
+        width: 3922,
+      },
+      {
+        src: "./gallery/drawings/PXL_20260603_104831215.jpg",
+        height: 2741,
+        width: 3885,
+      },
+      {
+        src: "./gallery/drawings/PXL_20260623_172732581.jpg",
+        height: 3976,
+        width: 2764,
+      },
+      {
+        src: "./gallery/drawings/PXL_20260623_172744019.jpg",
+        height: 3891,
+        width: 2739,
+      },
+      {
+        src: "./gallery/drawings/PXL_20260728_170721819.jpg",
+        height: 3687,
+        width: 2577,
+      },
+      {
+        src: "./gallery/drawings/PXL_20260811_163641815.jpg",
+        height: 3996,
+        width: 2331,
+      },
+      {
         src: "./gallery/drawings/PXL_20250422_153527563.jpg",
         height: 825,
         width: 931,
