@@ -57,7 +57,10 @@ const IMAGES_TO_PREFETCH = [
 ];
 
 setTimeout(
-  () => IMAGES_TO_PREFETCH.forEach((url) => (new Image().src = url)),
+  () =>
+    IMAGES_TO_PREFETCH.forEach(
+      (url) => (new Image().src = `/static/images/${url}`),
+    ),
   0,
 );
 
