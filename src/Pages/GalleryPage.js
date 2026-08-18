@@ -221,7 +221,7 @@ const OneGallery = ({ name, isMobile }) => {
               photos={images}
               onClick={(event, obj) => {
                 const newTab = window.open(
-                  images[obj.index].src,
+                  images[obj.index].full || images[obj.index].src,
                   "_blank",
                   "noopener,noreferrer",
                 );
