@@ -2,6 +2,9 @@
   "name": "portfoliri",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "dependencies": {
     "lodash": "4.17.21",
     "qs": "6.11.2",
